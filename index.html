@@ -1,857 +1,701 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Agency | Digital Marketing & Branding Solutions</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #d90429;
-            --secondary-color: #f1f1f1;
-            --text-dark: #1a1a1a;
-            --text-light: #666;
-            --light-bg: #f8f9fa;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Navigation */
-        nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        nav a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            margin: 0 15px;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        .cta-btn {
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-btn:hover {
-            background: #b80325;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(217,4,41,0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 100px;
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 30px;
-            color: var(--text-dark);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            max-width: 600px;
-        }
-
-        .hero-image {
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 60px;
-        }
-
-        .service-card {
-            background: white;
-            border: 2px solid #eee;
-            border-radius: 15px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(217,4,41,0.15);
-        }
-
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2rem;
-            transition: transform 0.3s;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .service-card h4 {
-            font-weight: 700;
-            margin: 20px 0;
-            font-size: 1.3rem;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b6b 100%);
-            color: white;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 40px 20px;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 100px 0;
-            background: var(--light-bg);
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .team-image {
-            height: 300px;
-            background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 5rem;
-        }
-
-        .team-info {
-            padding: 30px;
-        }
-
-        .team-info h5 {
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .team-position {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-
-        .team-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .social-icons {
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: var(--light-bg);
-            color: var(--primary-color);
-            border-radius: 50%;
-            line-height: 40px;
-            text-align: center;
-            margin: 0 5px;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Clients/Portfolio Section */
-        .portfolio-section {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .client-logo {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            background: var(--light-bg);
-            border-radius: 10px;
-            transition: all 0.3s;
-        }
-
-        .client-logo:hover {
-            background: white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 100px 0;
-            background: var(--light-bg);
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
-
-        .testimonial-card:hover {
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-        }
-
-        .testimonial-stars {
-            color: #ffc107;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .testimonial-text {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-style: italic;
-            font-size: 1rem;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .testimonial-role {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color), #ff6b6b);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-
-        .cta-section p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-section .cta-btn {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .cta-section .cta-btn:hover {
-            background: var(--light-bg);
-        }
-
-        /* Newsletter Section */
-        .newsletter-section {
-            padding: 100px 0;
-            background: white;
-        }
-
-        .newsletter-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form input {
-            padding: 15px 20px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 1rem;
-            width: 100%;
-            margin-bottom: 15px;
-            transition: border-color 0.3s;
-        }
-
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-section h5 {
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 12px;
-            transition: color 0.3s;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-color);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 30px;
-            margin-top: 40px;
-            text-align: center;
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-            }
-
-            nav a {
-                margin: 0 8px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<!-- Navigation -->
-<nav>
-    <div class="container d-flex justify-content-between align-items-center">
-        <div class="logo">Digital Alpha</div>
-        <div>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#team">Team</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact" class="cta-btn">Get Quote</a>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="hero" id="home">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6 hero-content">
-                <h1>Digital Agency You Can Rely Upon!</h1>
-                <p>We are a team of experts committed to helping you craft compelling and meaningful content that captures your readers' attention and engages them like never before.</p>
-                <a href="#contact" class="cta-btn">Get Started</a>
-            </div>
-            <div class="col-lg-6 hero-image">
-                <div style="font-size: 120px; color: var(--primary-color);">
-                    <i class="fas fa-rocket"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Services Section -->
-<section class="services-section" id="services">
-    <div class="container">
-        <h2 class="section-title">Services We Offer</h2>
-        <p class="section-subtitle">We provide a variety of services aimed at assisting you with your digital marketing and branding requirements.</p>
-        
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <h4>Content Marketing</h4>
-                    <p>Create engaging and valuable content that attracts and retains your target audience.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h4>SEO Optimization</h4>
-                    <p>Boost your online visibility with our proven SEO strategies and techniques.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <h4>Social Media Management</h4>
-                    <p>Manage and grow your social media presence with strategic campaigns.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h4>PPC Advertising</h4>
-                    <p>Drive qualified traffic with targeted pay-per-click advertising campaigns.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h4>Brand Design</h4>
-                    <p>Create a memorable brand identity that resonates with your audience.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h4>Web Development</h4>
-                    <p>Build stunning, responsive websites that convert visitors into customers.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Stats Section -->
-<section class="stats-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 stat-item">
-                <div class="stat-number">50+</div>
-                <div class="stat-label">Projects Completed</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <div class="stat-number">30+</div>
-                <div class="stat-label">Happy Clients</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Team Members</div>
-            </div>
-            <div class="col-md-3 stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Satisfaction Rate</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section class="portfolio-section">
-    <div class="container">
-        <h2 class="section-title">Our Clients</h2>
-        <p class="section-subtitle">We have collaborated with more than 20 global brands and renowned companies.</p>
-        
-        <div class="row g-4">
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-store"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-lg-3">
-                <div class="client-logo">
-                    <div style="font-size: 2rem; color: var(--primary-color);">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Team Section -->
-<section class="team-section" id="team">
-    <div class="container">
-        <h2 class="section-title">Our Team</h2>
-        <p class="section-subtitle">Elevate your digital marketing efforts with our expert team of professionals.</p>
-        
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="team-card">
-                    <div class="team-image">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="team-info">
-                        <h5>John Smith</h5>
-                        <div class="team-position">CEO & Co-Founder</div>
-                        <p>10+ years of digital marketing experience and brand strategy expertise.</p>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="team-card">
-                    <div class="team-image">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="team-info">
-                        <h5>Sarah Johnson</h5>
-                        <div class="team-position">CMO & Co-Founder</div>
-                        <p>Expert in content strategy and creative campaigns that drive results.</p>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="team-card">
-                    <div class="team-image">
-                        <i class="fas fa-user-circle"></i>
-                    </div>
-                    <div class="team-info">
-                        <h5>Michael Chen</h5>
-                        <div class="team-position">CTO & Co-Founder</div>
-                        <p>Specialized in web development and digital infrastructure optimization.</p>
-                        <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="testimonials-section" id="testimonials">
-    <div class="container">
-        <h2 class="section-title">Client Reviews</h2>
-        <p class="section-subtitle">What our satisfied clients have to say about our services.</p>
-        
-        <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Amazing service! They completely transformed our digital presence. Highly recommended!"</p>
-                    <div class="testimonial-author">Alex Williams</div>
-                    <div class="testimonial-role">Founder, Tech Startup</div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Professional team with excellent results. Our ROI increased significantly within 3 months!"</p>
-                    <div class="testimonial-author">Emma Davis</div>
-                    <div class="testimonial-role">CEO, E-commerce Business</div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Great communication and strategic approach. They understood our brand perfectly!"</p>
-                    <div class="testimonial-author">David Martinez</div>
-                    <div class="testimonial-role">Marketing Director</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="cta-section">
-    <div class="container">
-        <h2>Ready to Transform Your Digital Presence?</h2>
-        <p>Let's work together to achieve your business goals through innovative digital marketing strategies.</p>
-        <a href="#contact" class="cta-btn">Get a Free Consultation</a>
-    </div>
-</section>
-
-<!-- Newsletter Section -->
-<section class="newsletter-section">
-    <div class="container">
-        <h2 class="section-title">Subscribe to Our Newsletter</h2>
-        <p class="section-subtitle">Get the latest digital marketing trends, tips, and insights delivered to your inbox.</p>
-        
-        <form class="newsletter-form" onsubmit="handleSubscribe(event)">
-            <input type="email" placeholder="Enter your email address" required>
-            <button type="submit" class="cta-btn" style="width: 100%;">Sign Up</button>
-        </form>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 footer-section">
-                <h5>About Us</h5>
-                <p style="color: rgba(255,255,255,0.7);">Digital Alpha is a leading digital marketing agency committed to helping businesses grow in the digital world.</p>
-            </div>
-            <div class="col-md-3 footer-section">
-                <h5>Useful Links</h5>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 footer-section">
-                <h5>Services</h5>
-                <ul>
-                    <li><a href="#">Content Marketing</a></li>
-                    <li><a href="#">SEO Services</a></li>
-                    <li><a href="#">Social Media</a></li>
-                    <li><a href="#">PPC Advertising</a></li>
-                    <li><a href="#">Web Development</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 footer-section">
-                <h5>Contact Info</h5>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 10px;">
-                    <i class="fas fa-map-marker-alt"></i> 123 Business Street, City, Country
-                </p>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 10px;">
-                    <i class="fas fa-phone"></i> +1 (555) 123-4567
-                </p>
-                <p style="color: rgba(255,255,255,0.7);">
-                    <i class="fas fa-envelope"></i> info@digitalalpha.com
-                </p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Digital Alpha. All rights reserved. | <a href="#" style="color: var(--primary-color); text-decoration: none;">Privacy Policy</a></p>
-        </div>
-    </div>
-</footer>
-
-<script>
-    function handleSubscribe(event) {
-        event.preventDefault();
-        const email = event.target.querySelector('input[type="email"]').value;
-        alert('Thank you for subscribing! We will send updates to ' + email);
-        event.target.reset();
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roar Marketing | Growth-Driven Digital Agency</title>
+  <meta name="description" content="Roar Marketing is a growth-focused digital agency helping ambitious brands scale with strategy, creative, and performance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #ff4d2e;
+      --brand-dark: #e43f22;
+      --ink: #121212;
+      --muted: #5c5c5c;
+      --bg: #f7f7f9;
+      --card: #ffffff;
+      --border: #e9e9ef;
+      --accent: #0f172a;
+      --success: #16a34a;
     }
 
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-    });
-</script>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      background: var(--brand);
+      color: white;
+    }
+
+    .btn:hover {
+      background: var(--brand-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(255, 77, 46, 0.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--ink);
+    }
+
+    .btn-outline:hover {
+      background: white;
+      border-color: var(--brand);
+      color: var(--brand);
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      background: linear-gradient(135deg, #fff, #fdf1ee);
+      padding-bottom: 80px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo span {
+      color: var(--brand);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      color: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      align-items: center;
+      padding: 80px 0 40px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .metric {
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--bg);
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.9rem;
+      margin-top: 4px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 48px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 26px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      color: var(--brand);
+      background: rgba(255, 77, 46, 0.1);
+      padding: 6px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .stats {
+      background: var(--accent);
+      color: white;
+      border-radius: 26px;
+      padding: 40px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stats-grid h3 {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .case-card {
+      display: grid;
+      gap: 18px;
+      background: white;
+      border-radius: 22px;
+      padding: 26px;
+      border: 1px solid var(--border);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 10px;
+      background: var(--bg);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .testimonial {
+      background: white;
+      border-radius: 20px;
+      padding: 26px;
+      border: 1px solid var(--border);
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #ff4d2e, #ff7a55);
+      color: white;
+      border-radius: 24px;
+      padding: 50px;
+      text-align: center;
+    }
+
+    .cta p {
+      opacity: 0.95;
+      margin: 16px auto 28px;
+      max-width: 580px;
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+
+    .price-card {
+      background: white;
+      border-radius: 22px;
+      padding: 28px;
+      border: 1px solid var(--border);
+    }
+
+    .price-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin: 12px 0 18px;
+    }
+
+    .price-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .price-card li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 800;
+      margin-right: 8px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 16px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 18px;
+    }
+
+    details summary {
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    details p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-family: inherit;
+    }
+
+    footer {
+      background: #0b0b0b;
+      color: #d1d1d1;
+      padding: 50px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 28px;
+      margin-bottom: 20px;
+    }
+
+    .footer-grid h4 {
+      color: white;
+      margin-bottom: 12px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Roar <span>Marketing</span></div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container hero">
+      <div>
+        <div class="pill">Growth partner for ambitious brands</div>
+        <h1>Make your brand roar with strategy, creative, and performance.</h1>
+        <p>Roar Marketing helps founders and marketing leaders grow demand with full-funnel campaigns, conversion-focused design, and measurable results.</p>
+        <div style="display:flex; gap:12px; flex-wrap: wrap;">
+          <a class="btn" href="#contact">Start a Project</a>
+          <a class="btn btn-outline" href="#work">View Case Studies</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Q1 Growth Snapshot</h3>
+        <p style="color: var(--muted);">Performance across recent partner campaigns.</p>
+        <div class="hero-metrics">
+          <div class="metric">+146%<span>Lead growth</span></div>
+          <div class="metric">3.4x<span>ROAS average</span></div>
+          <div class="metric">-28%<span>CPA reduction</span></div>
+          <div class="metric">+61%<span>Pipeline lift</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">Services built to scale revenue</h2>
+      <p class="section-subtitle">A senior team across growth, creative, and analytics working as your extension.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Growth Strategy</h3>
+          <p>Market positioning, ICP definition, competitive analysis, and a roadmap aligned to revenue goals.</p>
+        </div>
+        <div class="card">
+          <h3>Performance Marketing</h3>
+          <p>Search, social, and retargeting campaigns optimized by lifecycle stage and ROI.</p>
+        </div>
+        <div class="card">
+          <h3>Conversion Design</h3>
+          <p>Landing pages, CRO audits, and user flows that turn traffic into qualified pipeline.</p>
+        </div>
+        <div class="card">
+          <h3>Content & Brand</h3>
+          <p>Editorial strategy, storytelling, and creative systems that keep your brand consistent.</p>
+        </div>
+        <div class="card">
+          <h3>Marketing Ops</h3>
+          <p>Analytics, attribution, CRM workflows, and dashboards that make performance visible.</p>
+        </div>
+        <div class="card">
+          <h3>Launch & GTM</h3>
+          <p>Launch planning, offer positioning, and multi-channel activation to maximize impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container split">
+      <div>
+        <h2 class="section-title" style="text-align:left;">Recent wins</h2>
+        <p class="section-subtitle" style="text-align:left; margin-left:0;">Proof of outcomes across SaaS, ecommerce, and B2B services.</p>
+        <div class="stats">
+          <div class="stats-grid">
+            <div>
+              <h3>120+</h3>
+              <p>Growth experiments</p>
+            </div>
+            <div>
+              <h3>38</h3>
+              <p>Active partners</p>
+            </div>
+            <div>
+              <h3>$12M</h3>
+              <p>Pipeline influenced</p>
+            </div>
+            <div>
+              <h3>4.8/5</h3>
+              <p>Client satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid; gap:16px;">
+        <div class="case-card">
+          <span class="tag">B2B SaaS</span>
+          <h3>Demand generation sprint</h3>
+          <p>Redesigned funnel offers, rebuilt paid search structure, and implemented lead scoring for higher quality MQLs.</p>
+          <strong>Result: 2.9x pipeline growth in 90 days.</strong>
+        </div>
+        <div class="case-card">
+          <span class="tag">Ecommerce</span>
+          <h3>Full-funnel ecommerce scale</h3>
+          <p>Optimized creative testing, added lifecycle flows, and increased repeat purchase rate with segmentation.</p>
+          <strong>Result: +41% repeat revenue QoQ.</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="container">
+      <h2 class="section-title">A clear, repeatable growth process</h2>
+      <p class="section-subtitle">Transparent collaboration with weekly reporting and predictable outcomes.</p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. Discover</h3>
+          <p>We align on goals, audit current channels, and map the fastest path to revenue.</p>
+        </div>
+        <div class="card">
+          <h3>2. Build</h3>
+          <p>Campaigns, creatives, landing pages, and analytics are built with measurable KPIs.</p>
+        </div>
+        <div class="card">
+          <h3>3. Scale</h3>
+          <p>We optimize weekly, expand winning channels, and continuously improve conversion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container split">
+      <div>
+        <h2 class="section-title" style="text-align:left;">What clients say</h2>
+        <p class="section-subtitle" style="text-align:left; margin-left:0;">We’re trusted by founders and marketing leaders who value results and clarity.</p>
+        <a class="btn" href="#contact">Talk to Roar Marketing</a>
+      </div>
+      <div style="display:grid; gap:16px;">
+        <div class="testimonial">
+          <p>“Roar Marketing rebuilt our acquisition engine. The team was strategic, fast, and obsessive about ROI.”</p>
+          <strong>Amira Khan</strong><br>
+          <span style="color: var(--muted);">VP Marketing, CloudBridge</span>
+        </div>
+        <div class="testimonial">
+          <p>“Our paid media efficiency doubled in six weeks. We finally have clear visibility into pipeline.”</p>
+          <strong>Jake Collins</strong><br>
+          <span style="color: var(--muted);">Founder, NorthPeak</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">Flexible engagement plans</h2>
+      <p class="section-subtitle">Choose the plan that fits your growth stage. Scale up or down anytime.</p>
+      <div class="pricing">
+        <div class="price-card">
+          <h3>Launch</h3>
+          <p class="price">$1,900/mo</p>
+          <ul>
+            <li>Channel strategy</li>
+            <li>2 campaign builds</li>
+            <li>Bi-weekly reporting</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Get started</a>
+        </div>
+        <div class="price-card" style="border: 2px solid var(--brand);">
+          <h3>Growth</h3>
+          <p class="price">$3,500/mo</p>
+          <ul>
+            <li>Full-funnel management</li>
+            <li>Landing page optimization</li>
+            <li>Weekly performance reviews</li>
+          </ul>
+          <a class="btn" href="#contact">Most popular</a>
+        </div>
+        <div class="price-card">
+          <h3>Scale</h3>
+          <p class="price">Custom</p>
+          <ul>
+            <li>Multi-channel expansion</li>
+            <li>Creative studio support</li>
+            <li>Dedicated growth pod</li>
+          </ul>
+          <a class="btn btn-outline" href="#contact">Request quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container cta">
+      <h2>Ready to grow with Roar Marketing?</h2>
+      <p>Book a strategy call to see how we can unlock predictable pipeline and profitable growth.</p>
+      <a class="btn" href="#contact">Book a Call</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container split">
+      <div>
+        <h2 class="section-title" style="text-align:left;">Let’s build your growth plan</h2>
+        <p class="section-subtitle" style="text-align:left; margin-left:0;">Tell us about your goals and we’ll respond within 1 business day.</p>
+        <div class="faq">
+          <details>
+            <summary>What industries do you specialize in?</summary>
+            <p>We partner with B2B SaaS, ecommerce, and service brands focused on growth and demand generation.</p>
+          </details>
+          <details>
+            <summary>How fast can you start?</summary>
+            <p>Most partnerships begin within 1-2 weeks after strategy alignment and onboarding.</p>
+          </details>
+          <details>
+            <summary>Do you offer one-time projects?</summary>
+            <p>Yes, we offer audits, launch plans, and conversion optimization projects.</p>
+          </details>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Project inquiry</h3>
+        <form onsubmit="handleSubmit(event)">
+          <input type="text" name="name" placeholder="Full name" required />
+          <input type="email" name="email" placeholder="Work email" required />
+          <select name="budget" required>
+            <option value="">Monthly budget</option>
+            <option>$1k - $3k</option>
+            <option>$3k - $7k</option>
+            <option>$7k - $15k</option>
+            <option>$15k+</option>
+          </select>
+          <textarea name="message" rows="4" placeholder="Tell us about your goals"></textarea>
+          <button class="btn" type="submit">Send request</button>
+          <p id="form-status" style="color: var(--muted);"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>Roar Marketing</h4>
+          <p>Growth-focused marketing partner for brands ready to scale.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <p><a href="#services">Services</a></p>
+          <p><a href="#work">Work</a></p>
+          <p><a href="#process">Process</a></p>
+          <p><a href="#pricing">Pricing</a></p>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p>Email: hello@roarmarketing.com</p>
+          <p>Phone: +1 (555) 018-9032</p>
+          <p>Location: Remote / Global</p>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p>Get monthly growth insights and playbooks.</p>
+          <form onsubmit="handleSubmit(event)">
+            <input type="email" name="email" placeholder="Email address" required />
+            <button class="btn" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">© 2026 Roar Marketing. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const status = event.target.querySelector('#form-status');
+      if (status) {
+        status.textContent = 'Thanks! We will be in touch within 1 business day.';
+      } else {
+        alert('Thanks! We will be in touch within 1 business day.');
+      }
+      event.target.reset();
+    }
+  </script>
 </body>
 </html>
