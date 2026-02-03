@@ -7,8 +7,9 @@
     <link rel="shortcut icon" href="logo.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
     <style>
         :root {
             --red-900: #6b0f1a;
@@ -18,21 +19,29 @@
             --dark: #141414;
             --light: #f8f9fa;
             --text: #222;
+            --text-light: #666;
+            --border: #e5e7eb;
         }
         * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--text);
             background: #fff;
-            line-height: 1.7;
+            line-height: 1.8;
             border-top: 3px solid #b11226;
         }
+
+        /* Enhanced Navbar */
         .navbar {
             background: #fff;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border);
             display: flex;
             align-items: center;
             min-height: 70px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         .navbar-brand {
             font-weight: 800;
@@ -45,269 +54,621 @@
             vertical-align: middle;
             margin-top: 0 !important;
             margin-bottom: 0 !important;
+            height: 50px;
+            width: 50px;
         }
         .navbar-nav {
             display: flex;
             align-items: center;
+            flex-wrap: nowrap;
+            gap: 8px;
         }
         .nav-link {
-            color: #333 !important;
-            font-weight: 600;
-            margin: 0 4px;
+            color: var(--text) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin: 0 6px;
             white-space: nowrap;
+            transition: color 0.3s ease;
         }
-        .nav-link:hover { color: var(--red-700) !important; }
+        .nav-link:hover {
+            color: var(--red-700) !important;
+        }
         .btn-cta {
             background: var(--red-700);
             color: #fff !important;
             border-radius: 999px;
-            padding: 10px 18px;
+            padding: 10px 20px;
             font-weight: 700;
             border: none;
-            box-shadow: 0 10px 24px rgba(177, 18, 38, 0.25);
+            box-shadow: 0 8px 20px rgba(177, 18, 38, 0.2);
             white-space: nowrap;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
         }
-        .btn-cta:hover { background: var(--red-900); }
+        .btn-cta:hover {
+            background: var(--red-900);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(177, 18, 38, 0.3);
+        }
         .social-icons a {
             color: var(--red-700);
-            margin-left: 10px;
-            font-size: 1rem;
+            margin-left: 12px;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            transform: scale(1.15);
         }
 
+        /* Hero Section */
         .hero {
-            padding: 110px 0 80px;
-            background: radial-gradient(circle at top right, var(--red-300), #fff 55%);
+            padding: 140px 0 100px;
+            background: linear-gradient(135deg, #fff 0%, rgba(254, 205, 211, 0.4) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(254, 205, 211, 0.3), transparent);
+            border-radius: 50%;
+            z-index: -1;
         }
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.6rem;
             font-weight: 800;
+            color: var(--red-700);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: -1px;
         }
-        .hero p { color: #555; max-width: 560px; }
+        .hero p {
+            color: var(--text-light);
+            max-width: 580px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
         .badge-pill {
             background: var(--red-700);
             color: #fff;
             border-radius: 999px;
-            padding: 6px 14px;
-            font-size: 0.85rem;
+            padding: 8px 16px;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+            display: inline-block;
+            text-transform: uppercase;
         }
-        .lion-card {
+        .hero-card {
             background: #fff;
-            border: 2px solid #f3f3f3;
-            border-radius: 24px;
-            padding: 26px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .lion-svg {
-            width: 100%;
-            height: auto;
+        .hero-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
         }
-
-        .section { padding: 90px 0; }
-        .section-title {
-            font-weight: 800;
-            font-size: 2.3rem;
-            text-align: center;
+        .hero-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
         }
-        .section-subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: 10px auto 50px;
-            color: #666;
+        .hero-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            font-weight: 500;
+            color: var(--text);
+            font-size: 0.95rem;
         }
-
-        .service-card {
-            border: 1px solid #eee;
-            border-radius: 16px;
-            padding: 26px;
-            background: #fff;
-            height: 100%;
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(225, 29, 72, 0.15);
-        }
-
-        /* Animations */
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        .fade-in-down {
-            animation: fadeInDown 0.8s ease-out forwards;
-        }
-        .zoom-in {
-            animation: zoomIn 0.8s ease-out forwards;
-        }
-        .slide-in-left {
-            animation: slideInLeft 0.8s ease-out forwards;
-        }
-        .slide-in-right {
-            animation: slideInRight 0.8s ease-out forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        @keyframes zoomIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(60px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Hover glow effect */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(225, 29, 72, 0.1), transparent);
-            border-radius: 16px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
-            z-index: -1;
-        }
-        .service-card:hover::before {
-            opacity: 1;
-        }
-        .service-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
+        .hero-list-item i {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--red-700);
-            color: #fff;
-            font-size: 1.4rem;
-            margin-bottom: 14px;
+            background: var(--red-300);
+            color: var(--red-700);
+            flex-shrink: 0;
         }
 
+        /* Sections */
+        .section {
+            padding: 100px 0;
+        }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 20px;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+        .section-subtitle {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        .section-eyebrow {
+            color: var(--red-700);
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            font-size: 0.8rem;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        /* Cards */
+        .service-card {
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 32px;
+            background: #fff;
+            height: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(225, 29, 72, 0.12);
+            border-color: var(--red-300);
+        }
+        .service-card h5 {
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--red-300);
+            color: var(--red-700);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Services Layout */
+        .services-section {
+            background: #fff;
+        }
+        .services-layout {
+            display: grid;
+            grid-template-columns: minmax(300px, 1fr) minmax(0, 1.5fr);
+            gap: 60px;
+            align-items: stretch;
+        }
+        .services-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            height: 100%;
+        }
+        .services-info .section-title,
+        .services-info .section-subtitle {
+            text-align: left;
+            margin-left: 0;
+        }
+        .services-info .section-subtitle {
+            margin-bottom: 0;
+            max-width: none;
+        }
+        .services-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+        .profile-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-top: auto;
+            flex-wrap: wrap;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        .services-profile {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .profile-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--red-700);
+            box-shadow: 0 4px 12px rgba(177, 18, 38, 0.15);
+        }
+        .profile-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--dark);
+        }
+        .profile-title {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        .btn-more-services {
+            background: var(--red-700);
+            color: #fff;
+            border-radius: 999px;
+            padding: 12px 24px;
+            font-weight: 700;
+            border: none;
+            letter-spacing: 0.08em;
+            font-size: 0.85rem;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(177, 18, 38, 0.2);
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+        .btn-more-services:hover {
+            background: var(--red-900);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(177, 18, 38, 0.3);
+        }
+
+        /* Card Styles */
+        .why-card,
+        .portfolio-card,
+        .process-card,
+        .testimonial-card,
+        .contact-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        .why-card:hover,
+        .portfolio-card:hover,
+        .process-card:hover,
+        .testimonial-card:hover,
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+        }
+        .why-card h5,
+        .portfolio-card h5,
+        .process-card h5,
+        .testimonial-card p {
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .why-card p,
+        .portfolio-card p,
+        .process-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .portfolio-thumb {
+            height: 200px;
+            background: linear-gradient(135deg, var(--red-300), rgba(254, 205, 211, 0.4));
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+        .process-step {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--red-700), var(--red-500));
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(177, 18, 38, 0.2);
+        }
+
+        .client-logo {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            background: #fff;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        .client-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .map-placeholder {
+            border: 2px dashed var(--red-300);
+            border-radius: 20px;
+            background: linear-gradient(135deg, #fff5f6, #fff);
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--red-700);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            font-size: 0.9rem;
+        }
+
+        /* Stats Section */
         .stats {
             background: linear-gradient(135deg, var(--red-700), var(--red-500));
             color: #fff;
+            box-shadow: 0 20px 60px rgba(177, 18, 38, 0.2);
         }
         .stat {
             text-align: center;
-            padding: 20px 10px;
+            padding: 40px 20px;
         }
-        .stat h3 { font-size: 2.2rem; font-weight: 800; }
+        .stat h3 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+        }
+        .stat p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
 
+        /* Blog Cards */
         .blog-card {
-            border: 1px solid #eee;
-            border-radius: 16px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
             overflow: hidden;
             background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.1);
         }
         .blog-thumb {
-            background: var(--red-300);
-            height: 170px;
+            background: linear-gradient(135deg, var(--red-300), rgba(254, 205, 211, 0.4));
+            height: 200px;
+        }
+        .blog-card h5 {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+        }
+        .blog-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
-        .testimonial {
-            border: 1px solid #eee;
-            border-radius: 16px;
-            padding: 24px;
-            background: #fff;
+        /* Testimonials */
+        .testimonial-card {
+            border-left: 4px solid var(--red-700);
+        }
+        .testimonial-card p {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+        .testimonial-card strong {
+            color: var(--red-700);
+            font-weight: 700;
         }
 
-        /* WhatsApp Floating Icon */
+        /* WhatsApp Icon */
         .whatsapp-icon {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
             z-index: 999;
             animation: pulse 2s infinite;
             text-decoration: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
         }
         .whatsapp-icon:hover {
             background: #20BA5A;
             animation: none;
-            transform: scale(1.1);
+            transform: scale(1.15);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
         }
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
             }
             50% {
-                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
+                box-shadow: 0 6px 35px rgba(37, 211, 102, 0.6);
             }
         }
 
+        /* Footer */
         footer {
             background: var(--dark);
             color: #fff;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
         }
-        footer a { color: #f5b2bd; text-decoration: none; }
-        .footer-title { color: #fff; font-weight: 700; }
+        footer a {
+            color: #f5b2bd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+        .footer-title {
+            color: #fff;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        footer ul li {
+            margin-bottom: 12px;
+        }
 
-        /* Logo responsive sizing */
+        /* Logo sizing */
         .logo-img {
-            width: 75px;
-            height: 75px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
         }
 
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--red-700), var(--red-500));
+            color: #fff;
+            padding: 80px 0;
+        }
+        .newsletter-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+        .newsletter-section p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+            margin-bottom: 32px;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .newsletter-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 999px;
+            font-size: 0.95rem;
+        }
+        .newsletter-form button {
+            background: #fff;
+            color: var(--red-700);
+            font-weight: 700;
+            border: none;
+            border-radius: 999px;
+            padding: 12px 28px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .newsletter-form button:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .services-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
+            .hero {
+                padding: 100px 0 60px;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .section {
+                padding: 70px 0;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
             .logo-img {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
+            }
+            .services-cards {
+                grid-template-columns: 1fr;
+            }
+            .profile-cta {
+                flex-direction: column;
+                align-items: flex-start;
+                border-top: none;
+                padding-top: 0;
+            }
+            .btn-more-services {
+                width: 100%;
+                text-align: center;
+            }
+            .services-layout {
+                gap: 30px;
+            }
+            .stat {
+                padding: 30px 10px;
+            }
+            .stat h3 {
+                font-size: 2rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 100%;
             }
         }
     </style>
@@ -317,9 +678,9 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="index.html" style="gap: 12px; padding-top: 0; padding-bottom: 0;">
-    <img src="logo.png" alt="Lion Logo" class="logo-img" style="border-radius: 50%; object-fit: cover; margin-top: -15px; margin-bottom: -15px;">
+    <img src="logo.png" alt="Lion Logo" class="logo-img" style="border-radius: 50%; object-fit: cover;">
     
-    <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: #b11226; letter-spacing: 1px; text-transform: uppercase;">ROAR MARKETING</span>
+    <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; color: #b11226; letter-spacing: 1px; text-transform: uppercase;">ROAR MARKETING</span>
 </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
                 <span class="navbar-toggler-icon"></span>
@@ -350,45 +711,49 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-lg-8 mx-auto text-center">
-                    <span class="badge-pill d-inline-block mb-3" style="background: linear-gradient(90deg, #b11226 60%, #e11d48 100%); color: #fff; font-weight: 700; letter-spacing: 1px;">DIGITAL AGENCY</span>
-                    <h1 class="mt-3" style="color: #b11226; font-weight: 800;">Roar Marketing — Make Your Brand Roar</h1>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <span class="badge-pill d-inline-block mb-3">RESULTS-DRIVEN DIGITAL AGENCY</span>
+                    <h1 class="mt-3">Roar Marketing — Make Your Brand Roar</h1>
                     <p class="mt-3">We craft bold strategies, powerful content, and high‑performance campaigns to elevate your brand and deliver measurable growth.</p>
-                    <div class="mt-4 d-flex justify-content-center gap-3">
-                        <a class="btn btn-cta" style="background: #b11226; color: #fff;" href="#services">Explore Services</a>
+                    <div class="mt-4 d-flex flex-wrap gap-3">
+                        <a class="btn btn-cta" href="#services">Explore Services</a>
                         <a class="btn btn-outline-danger" style="color: #b11226; border-color: #b11226;" href="#contact">Contact Us</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section class="section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Roar Marketing</h2>
-            <p class="section-subtitle">We are a red‑theme, performance‑first agency focused on visibility, conversions, and brand authority.</p>
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
-                        <h5>Strategic Focus</h5>
-                        <p>We align your goals with data‑driven marketing campaigns that maximize ROI and growth.</p>
+                    <div class="row mt-4 g-3">
+                        <div class="col-4">
+                            <div class="service-card text-center" data-aos="fade-up" data-aos-delay="100">
+                                <h4 class="mb-1" style="color: var(--red-700); font-weight: 800;">120+</h4>
+                                <span class="text-muted">Projects</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="service-card text-center" data-aos="fade-up" data-aos-delay="150">
+                                <h4 class="mb-1" style="color: var(--red-700); font-weight: 800;">98%</h4>
+                                <span class="text-muted">Retention</span>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="service-card text-center" data-aos="fade-up" data-aos-delay="200">
+                                <h4 class="mb-1" style="color: var(--red-700); font-weight: 800;">60+</h4>
+                                <span class="text-muted">Clients</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-rocket"></i></div>
-                        <h5>Fast Execution</h5>
-                        <p>From content to ads, we deploy quickly with precision to capture market opportunities.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
-                        <h5>Brand Trust</h5>
-                        <p>We build credibility with consistent messaging and compelling brand experiences.</p>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-card">
+                        <h5 class="fw-bold">Strategy Snapshot</h5>
+                        <p class="text-muted">A proven framework for sustainable growth across every stage of the funnel.</p>
+                        <div class="hero-list">
+                            <div class="hero-list-item"><i class="fas fa-bullseye"></i>Audience research & positioning</div>
+                            <div class="hero-list-item"><i class="fas fa-chart-line"></i>Performance marketing & CRO</div>
+                            <div class="hero-list-item"><i class="fas fa-pen-nib"></i>Content that converts</div>
+                            <div class="hero-list-item"><i class="fas fa-share-nodes"></i>Social growth systems</div>
+                        </div>
+                        <div class="mt-4">
+                            <span class="badge-pill">TRUSTED PARTNER</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -396,61 +761,133 @@
     </section>
 
     <!-- Services We Offer -->
-    <section class="section" id="services" style="background: var(--light);">
+    <section class="section services-section" id="services">
         <div class="container">
-            <h2 class="section-title">Services We Offer</h2>
-            <p class="section-subtitle">Complete digital marketing solutions to grow your business.</p>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+            <div class="services-layout">
+                <div class="services-info" data-aos="fade-up">
+                    <div>
+                        <div class="section-eyebrow" style="text-align: left;">SERVICES</div>
+                        <h2 class="section-title">Services We Offer</h2>
+                        <p class="section-subtitle">Comprehensive digital marketing solutions tailored to your needs with clear outcomes and measurable ROI.</p>
+                    </div>
+                    <div class="profile-cta">
+                        <div class="services-profile">
+                            <img src="profile.png" alt="Farzan Bahadur" class="profile-img">
+                            <div class="profile-text">
+                                <div class="profile-name">Farzan Bahadur</div>
+                                <div class="profile-title">CEO, Co-Owner</div>
+                            </div>
+                        </div>
+                        <a class="btn-more-services" href="services.html">MORE SERVICES</a>
+                    </div>
+                </div>
+                <div class="services-cards">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                         <div class="service-icon"><i class="fas fa-chart-line"></i></div>
                         <h5>SEO Optimization</h5>
-                        <p>Boost organic visibility with technical, on‑page, and content SEO.</p>
+                        <p>Boost organic visibility with technical, on‑page, and content SEO strategies that drive long-term growth.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="150">
                         <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
                         <h5>Performance Ads</h5>
-                        <p>High‑ROI paid ads across Google, Meta, and YouTube.</p>
+                        <p>High‑ROI paid ads across Google, Meta, and YouTube with precision targeting and optimization.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
                         <h5>Content Marketing</h5>
-                        <p>Magnetic copy and creative content that converts.</p>
+                        <p>Magnetic copy and creative content that converts readers into customers and builds brand authority.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="250">
                         <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
                         <h5>Web Development</h5>
-                        <p>Fast, responsive websites built to convert visitors.</p>
+                        <p>Fast, responsive websites built to convert visitors into customers with modern technology.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
                         <h5>Social Media</h5>
-                        <p>Manage and grow your community with winning strategies.</p>
+                        <p>Manage and grow your community with winning strategies that build engagement and loyalty.</p>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+                    <div class="service-card" data-aos="fade-up" data-aos-delay="350">
                         <div class="service-icon"><i class="fas fa-palette"></i></div>
                         <h5>Brand Identity</h5>
-                        <p>Stand‑out visuals and positioning for a powerful brand.</p>
+                        <p>Stand‑out visuals and strategic positioning that make your brand memorable and powerful.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
-    <section class="section stats">
+    <!-- Why Choose Us -->
+    <section class="section" id="why">
         <div class="container">
-            <div class="row">
+            <div class="section-eyebrow" data-aos="fade-up">WHY CHOOSE US</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">A partner built for measurable growth</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">We combine creative strategy, performance marketing, and conversion design to deliver predictable results.</p>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-card">
+                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+                        <h5>Strategic Focus</h5>
+                        <p>We align goals, channels, and messaging so every campaign serves a measurable purpose.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="why-card">
+                        <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                        <h5>Fast Execution</h5>
+                        <p>Agile sprints keep your brand ahead of market shifts with rapid testing and iteration.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-card">
+                        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h5>Trusted Partnership</h5>
+                        <p>Transparent reporting and proactive communication make us an extension of your team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section class="section" id="portfolio" style="background: var(--light);">
+        <div class="container">
+            <div class="section-eyebrow" data-aos="fade-up">PORTFOLIO</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Success stories that speak louder</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">A snapshot of campaigns that delivered measurable results for growth‑focused brands.</p>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"></div>
+                        <h5>Retail Growth Campaign</h5>
+                        <p class="text-muted">Scaled revenue with a full‑funnel paid media and CRO program.</p>
+                        <p class="mb-0"><strong>Result:</strong> +142% revenue in 90 days</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"></div>
+                        <h5>SaaS Lead Engine</h5>
+                        <p class="text-muted">Positioning refresh + performance ads for enterprise acquisition.</p>
+                        <p class="mb-0"><strong>Result:</strong> 3.1x lead volume</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumb"></div>
+                        <h5>Hospitality Brand Lift</h5>
+                        <p class="text-muted">Social strategy and content system for brand awareness.</p>
+                        <p class="mb-0"><strong>Result:</strong> +68% engagement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stats -->
+    <section class="section stats" id="success">
+        <div class="container">
+            <div class="row" data-aos="fade-up">
                 <div class="col-md-3 stat">
                     <h3>120+</h3>
                     <p>Projects Delivered</p>
@@ -471,40 +908,68 @@
         </div>
     </section>
 
-    <!-- Blogs -->
-    <section class="section" id="blogs">
+    <!-- Process -->
+    <section class="section" id="process">
         <div class="container">
-            <h2 class="section-title">Latest Blogs</h2>
-            <p class="section-subtitle">Insights and strategies to help your brand dominate.</p>
+            <div class="section-eyebrow" data-aos="fade-up">HOW WE WORK</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">A clear, collaborative process</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">From discovery to optimization, every step is built for momentum.</p>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="blog-card">
-                        <div class="blog-thumb"></div>
-                        <div class="p-4">
-                            <h5>How to Build a Roaring Brand</h5>
-                            <p class="text-muted">Learn how bold positioning drives growth and attention.</p>
-                            <a href="#" class="text-danger fw-bold">Read More</a>
-                        </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="process-card">
+                        <div class="process-step">01</div>
+                        <h5>Discover</h5>
+                        <p>Audit your brand, market, and funnel to define growth opportunities.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="blog-card">
-                        <div class="blog-thumb"></div>
-                        <div class="p-4">
-                            <h5>Performance Ads That Convert</h5>
-                            <p class="text-muted">A framework for scalable ad campaigns.</p>
-                            <a href="#" class="text-danger fw-bold">Read More</a>
-                        </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="250">
+                    <div class="process-card">
+                        <div class="process-step">02</div>
+                        <h5>Strategize</h5>
+                        <p>Design a channel mix with messaging frameworks and content pillars.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="blog-card">
-                        <div class="blog-thumb"></div>
-                        <div class="p-4">
-                            <h5>Content That Drives Sales</h5>
-                            <p class="text-muted">Create content that moves customers to action.</p>
-                            <a href="#" class="text-danger fw-bold">Read More</a>
-                        </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="process-card">
+                        <div class="process-step">03</div>
+                        <h5>Launch</h5>
+                        <p>Deploy creative assets, ads, and landing pages with rapid testing.</p>
+                    </div>
+                </div>
+                <div class="col-md-3" data-aos="fade-up" data-aos-delay="350">
+                    <div class="process-card">
+                        <div class="process-step">04</div>
+                        <h5>Optimize</h5>
+                        <p>Measure results weekly and scale what performs best.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials" style="background: var(--light);">
+        <div class="container">
+            <div class="section-eyebrow" data-aos="fade-up">TESTIMONIALS</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Clients love working with Roar Marketing</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">We build long‑term partnerships rooted in transparency and performance.</p>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <p>“Our leads doubled within 60 days and the team kept us informed every week.”</p>
+                        <strong>— Alex Morgan, Growth Director</strong>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="testimonial-card">
+                        <p>“They repositioned our brand and the market response was instant.”</p>
+                        <strong>— Priya Desai, Founder</strong>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="testimonial-card">
+                        <p>“Professional, strategic, and reliable. The results exceeded expectations.”</p>
+                        <strong>— Daniel Reyes, Marketing Lead</strong>
                     </div>
                 </div>
             </div>
@@ -512,41 +977,55 @@
     </section>
 
     <!-- Clients -->
-    <section class="section" id="clients" style="background: var(--light);">
+    <section class="section" id="clients">
         <div class="container">
-            <h2 class="section-title">Our Clients</h2>
-            <p class="section-subtitle">Trusted by ambitious brands worldwide.</p>
-            <div class="row g-4 text-center">
-                <div class="col-6 col-md-3">Client Logo</div>
-                <div class="col-6 col-md-3">Client Logo</div>
-                <div class="col-6 col-md-3">Client Logo</div>
-                <div class="col-6 col-md-3">Client Logo</div>
+            <div class="section-eyebrow" data-aos="fade-up">CLIENTS</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Trusted by ambitious brands</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">Partnerships across retail, tech, hospitality, and professional services.</p>
+            <div class="row g-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-6 col-md-3"><div class="client-logo">Alpha Retail</div></div>
+                <div class="col-6 col-md-3"><div class="client-logo">Nova SaaS</div></div>
+                <div class="col-6 col-md-3"><div class="client-logo">Luxe Living</div></div>
+                <div class="col-6 col-md-3"><div class="client-logo">Summit Health</div></div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="section" id="testimonials">
+    <!-- Blogs -->
+    <section class="section" id="blogs" style="background: var(--light);">
         <div class="container">
-            <h2 class="section-title">Testimonials</h2>
-            <p class="section-subtitle">Clients love working with Roar Marketing.</p>
+            <div class="section-eyebrow" data-aos="fade-up">INSIGHTS</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Latest strategies from our team</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">Tactical guidance to help your brand dominate search, social, and paid media.</p>
             <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p>“Our leads doubled within 60 days. Roar Marketing delivered results fast.”</p>
-                        <strong>— Alex Morgan</strong>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-card">
+                        <div class="blog-thumb"></div>
+                        <div class="p-4">
+                            <h5>How to Build a Roaring Brand</h5>
+                            <p class="text-muted">A positioning framework for standing out in saturated markets.</p>
+                            <a href="#" class="text-danger fw-bold">Read More</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p>“Their branding team gave us a fresh identity that stands out.”</p>
-                        <strong>— Priya Desai</strong>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="blog-card">
+                        <div class="blog-thumb"></div>
+                        <div class="p-4">
+                            <h5>Performance Ads That Convert</h5>
+                            <p class="text-muted">An optimized funnel blueprint for repeatable ROI.</p>
+                            <a href="#" class="text-danger fw-bold">Read More</a>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="testimonial">
-                        <p>“Professional, strategic, and reliable. Highly recommended.”</p>
-                        <strong>— Daniel Reyes</strong>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-card">
+                        <div class="blog-thumb"></div>
+                        <div class="p-4">
+                            <h5>Content That Drives Sales</h5>
+                            <p class="text-muted">Create trust‑building assets that move customers to action.</p>
+                            <a href="#" class="text-danger fw-bold">Read More</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -554,13 +1033,14 @@
     </section>
 
     <!-- Contact -->
-    <section class="section" id="contact" style="background: var(--light);">
+    <section class="section" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Let’s build a campaign that roars.</p>
+            <div class="section-eyebrow" data-aos="fade-up">CONTACT</div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Let’s build your next growth story</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">Tell us about your goals and we’ll craft a plan that matches your ambition.</p>
             <div class="row g-4">
-                <div class="col-lg-6">
-                    <form class="service-card">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                    <form class="contact-card">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
                             <input class="form-control" placeholder="Your Name" required />
@@ -570,18 +1050,19 @@
                             <input type="email" class="form-control" placeholder="you@email.com" required />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Message</label>
+                            <label class="form-label">Project Goals</label>
                             <textarea class="form-control" rows="4" placeholder="Tell us about your project" required></textarea>
                         </div>
                         <button class="btn btn-cta w-100" type="submit">Send Message</button>
                     </form>
                 </div>
-                <div class="col-lg-6">
-                    <div class="service-card">
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="250">
+                    <div class="contact-card">
                         <h5>Reach Us</h5>
                         <p><i class="fas fa-phone me-2 text-danger"></i> +92 325-4771010</p>
                         <p><i class="fas fa-envelope me-2 text-danger"></i> roarxmarketing@gmail.com</p>
                         <p><i class="fas fa-location-dot me-2 text-danger"></i> Walton Road Lahore Cant</p>
+                        <div class="map-placeholder mt-4">MAP PLACEHOLDER</div>
                         <div class="mt-3 social-icons">
                             <a href="#"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -595,15 +1076,15 @@
     </section>
 
     <!-- Newsletter Section -->
-    <section class="section" style="background: linear-gradient(135deg, var(--red-700), var(--red-500)); color: #fff;">
+    <section class="newsletter-section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h2 class="section-title" style="color: #fff; margin-bottom: 20px;">Subscribe To Get Latest Updates</h2>
-                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px;">Don't miss out on the latest digital marketing and branding insights.</p>
-                    <form class="d-flex gap-2 justify-content-center flex-wrap">
-                        <input type="email" class="form-control" placeholder="Enter your email" style="max-width: 300px;" required>
-                        <button type="submit" class="btn" style="background: #fff; color: var(--red-700); font-weight: 700;">Sign Up</button>
+                    <h2>Subscribe To Get Latest Updates</h2>
+                    <p>Don't miss out on the latest digital marketing and branding insights, tips, and trends.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                        <button type="submit">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -612,38 +1093,60 @@
 
     <footer>
         <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
+            <div class="row g-5">
+                <div class="col-lg-4">
                     <h5 class="footer-title">Roar Marketing</h5>
-                    <p>Red‑theme marketing agency helping brands roar with confidence and clarity.</p>
+                    <p style="color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 20px;">Growth‑focused digital agency helping modern brands dominate search, social, and paid media with bold strategy and measurable results.</p>
+                    <div class="mt-3">
+                        <a class="btn btn-cta" href="contact.html">Start a Project</a>
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <h5 class="footer-title">Quick Links</h5>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-title">Navigation</h6>
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
+                        <li><a href="#blogs">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="locations.html">Locations</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h5 class="footer-title">Contact Info</h5>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+923254771010">+92 325-4771010</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:roarxmarketing@gmail.com">roarxmarketing@gmail.com</a></p>
-                    <p><i class="fas fa-location-dot"></i> Walton Road Lahore Cant</p>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-title">Services</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="services.html">SEO Optimization</a></li>
+                        <li><a href="services.html">Performance Ads</a></li>
+                        <li><a href="services.html">Content Marketing</a></li>
+                        <li><a href="services.html">Web Development</a></li>
+                        <li><a href="services.html">Brand Identity</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-title">Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#blogs">Blog Articles</a></li>
+                        <li><a href="#clients">Client List</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-title">Contact</h6>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 8px;"><i class="fas fa-phone me-2"></i> <a href="tel:+923254771010">+92 325-4771010</a></p>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin-bottom: 8px;"><i class="fas fa-envelope me-2"></i> <a href="mailto:roarxmarketing@gmail.com">roarxmarketing@gmail.com</a></p>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;"><i class="fas fa-location-dot me-2"></i> Walton Road, Lahore</p>
                 </div>
             </div>
-            <div class="row mt-4 pt-3 border-top border-secondary">
+            <div class="row mt-5 pt-4 border-top border-secondary">
                 <div class="col-md-6">
-                    <p style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</p>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">© 2026 Roar Marketing. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <div class="social-icons" style="margin-left: 0; justify-content: flex-end;">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    <div class="social-icons" style="margin-left: 0; justify-content: flex-end; gap: 16px;">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
@@ -656,25 +1159,13 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe all service cards and other elements
-        document.querySelectorAll('.service-card, .blog-card, .testimonial, .stat').forEach(el => {
-            observer.observe(el);
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            offset: 120
         });
     </script>
 </body>
