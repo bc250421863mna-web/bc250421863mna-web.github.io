@@ -422,50 +422,42 @@
         }
 
         .portfolio-thumb {
-            height: 200px;
+            height: 160px;
             background-size: cover;
             background-position: center;
-            border-radius: 16px;
-            margin-bottom: 24px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 16px 16px 0 0;
+            margin: -32px -32px 16px -32px;
+            width: calc(100% + 64px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            object-fit: cover;
         }
         .portfolio-card h5 {
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         .portfolio-card p {
             text-align: center;
+            margin: 0;
         }
         .portfolio-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             text-align: center;
-            margin: 16px 0;
-            line-height: 1.6;
+            margin: 8px 0 0 0;
+            line-height: 1.5;
+            display: none;
         }
         .portfolio-result {
             text-align: center;
             color: var(--red-700);
             font-weight: 600;
-            margin-bottom: 16px;
+            margin-top: 8px;
+            margin-bottom: 0;
+            font-size: 0.95rem;
         }
         .view-project-link {
-            text-align: center;
-            margin-top: 16px;
-        }
-        .view-project-link a {
-            color: var(--red-700);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-        }
-        .view-project-link a:hover {
-            color: var(--red-900);
-            transform: translateX(4px);
+            display: none;
         }
         .process-step {
             display: inline-flex;
@@ -996,32 +988,26 @@
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="portfolio-card">
-                        <div class="portfolio-thumb" style="background: linear-gradient(135deg, rgba(177, 18, 38, 0.9), rgba(225, 29, 72, 0.85)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%23e11d48%22 width=%22400%22 height=%22300%22/%3E%3Crect fill=%22%23fecdd3%22 x=%2230%22 y=%2230%22 width=%22340%22 height=%22240%22 rx=%2210%22/%3E%3Crect fill=%22%23b11226%22 x=%2250%22 y=%2250%22 width=%22150%22 height=%2220%22 rx=%225%22/%3E%3Crect fill=%22%23b11226%22 x=%22220%22 y=%2250%22 width=%22100%22 height=%2220%22 rx=%225%22/%3E%3Ccircle cx=%2280%22 cy=%22140%22 r=%2225%22 fill=%22%23b11226%22 opacity=%220.8%22/%3E%3Ccircle cx=%22320%22 cy=%22140%22 r=%2230%22 fill=%22%23b11226%22 opacity=%220.6%22/%3E%3Crect fill=%22%23b11226%22 x=%2250%22 y=%22200%22 width=%22300%22 height=%2240%22 rx=%225%22 opacity=%220.7%22/%3E%3C/svg%3E'); background-size: cover; background-position: center;"></div>
+                        <div class="portfolio-thumb" style="background: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=500&h=300&fit=crop') center/cover no-repeat;"></div>
                         <h5>Retail Growth Campaign</h5>
-                        <p class="text-muted">Scaled revenue with a full‑funnel paid media and CRO program.</p>
-                        <p class="portfolio-result"><strong>Result: +142% revenue in 90 days</strong></p>
-                        <p class="portfolio-description">Optimized ad spend and improved conversion rates through data-driven strategies and strategic landing page redesigns.</p>
-                        <div class="view-project-link"><a href="#">View Project <i class="fas fa-arrow-right"></i></a></div>
+                        <p class="text-muted">E-commerce revenue scaling strategy</p>
+                        <p class="portfolio-result"><strong>+142% revenue in 90 days</strong></p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
                     <div class="portfolio-card">
-                        <div class="portfolio-thumb" style="background: linear-gradient(135deg, rgba(51, 65, 85, 0.9), rgba(30, 41, 59, 0.85)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%231e293b%22 width=%22400%22 height=%22300%22/%3E%3Crect fill=%22%23334155%22 x=%2220%22 y=%2220%22 width=%22360%22 height=%22260%22 rx=%2215%22/%3E%3Cg fill=%22%23e11d48%22%3E%3Crect x=%2240%22 y=%2240%22 width=%2280%22 height=%2240%22 rx=%225%22/%3E%3Crect x=%22140%22 y=%2240%22 width=%2280%22 height=%2240%22 rx=%225%22/%3E%3Crect x=%22240%22 y=%2240%22 width=%2280%22 height=%2240%22 rx=%225%22/%3E%3C/g%3E%3Cline x1=%2240%22 y1=%22110%22 x2=%22360%22 y2=%22110%22 stroke=%22%23e11d48%22 stroke-width=%222%22/%3E%3Cg fill=%22%23f1f5f9%22%3E%3Crect x=%2240%22 y=%22130%22 width=%22100%22 height=%2230%22 rx=%225%22/%3E%3Crect x=%22160%22 y=%22130%22 width=%22100%22 height=%2230%22 rx=%225%22/%3E%3Crect x=%22280%22 y=%22130%22 width=%2280%22 height=%2230%22 rx=%225%22/%3E%3Crect x=%2240%22 y=%22180%22 width=%22150%22 height=%2265%22 rx=%225%22/%3E%3Crect x=%22210%22 y=%22180%22 width=%22150%22 height=%2265%22 rx=%225%22/%3E%3C/g%3E%3C/svg%3E'); background-size: cover; background-position: center;"></div>
+                        <div class="portfolio-thumb" style="background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop') center/cover no-repeat;"></div>
                         <h5>SaaS Lead Engine</h5>
-                        <p class="text-muted">Positioning refresh + performance ads for enterprise acquisition.</p>
-                        <p class="portfolio-result"><strong>Result: 3.1x lead volume</strong></p>
-                        <p class="portfolio-description">Revolutionized lead generation through multi-channel campaigns and advanced audience targeting for B2B growth.</p>
-                        <div class="view-project-link"><a href="#">View Project <i class="fas fa-arrow-right"></i></a></div>
+                        <p class="text-muted">Enterprise B2B lead generation</p>
+                        <p class="portfolio-result"><strong>3.1x lead volume increase</strong></p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="portfolio-card">
-                        <div class="portfolio-thumb" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.9), rgba(139, 92, 246, 0.85)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 400 300%22%3E%3Crect fill=%22%238b5cf6%22 width=%22400%22 height=%22300%22/%3E%3Crect fill=%22%23e11d48%22 x=%2220%22 y=%2220%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%22%23e11d48%22 x=%22120%22 y=%2220%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%22%23e11d48%22 x=%22220%22 y=%2220%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%22%23e11d48%22 x=%22300%22 y=%2220%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%22%23fbbf24%22 x=%2220%22 y=%22120%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%2306b6d4%22 x=%22120%22 y=%22120%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%2310b981%22 x=%22220%22 y=%22120%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3Crect fill=%228b5cf6%22 x=%22300%22 y=%22120%22 width=%2280%22 height=%2280%22 rx=%2210%22/%3E%3C/svg%3E'); background-size: cover; background-position: center;"></div>
+                        <div class="portfolio-thumb" style="background: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=300&fit=crop') center/cover no-repeat;"></div>
                         <h5>Hospitality Brand Lift</h5>
-                        <p class="text-muted">Social strategy and content system for brand awareness.</p>
-                        <p class="portfolio-result"><strong>Result: +68% engagement</strong></p>
-                        <p class="portfolio-description">Built authentic social presence and community engagement through strategic content calendars and visual storytelling.</p>
-                        <div class="view-project-link"><a href="#">View Project <i class="fas fa-arrow-right"></i></a></div>
+                        <p class="text-muted">Social media engagement strategy</p>
+                        <p class="portfolio-result"><strong>+68% engagement growth</strong></p>
                     </div>
                 </div>
             </div>
