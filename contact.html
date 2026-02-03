@@ -26,16 +26,18 @@
             border-top: 3px solid #b11226;
         }
         .navbar {
-            background: #fff;
-            border-bottom: 1px solid #eee;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             min-height: 70px;
+            position: relative;
+            z-index: 10;
         }
         .navbar-brand {
             font-weight: 800;
             letter-spacing: 0.5px;
-            color: var(--red-700) !important;
+            color: #FFFFFF !important;
             display: flex;
             align-items: center;
         }
@@ -49,12 +51,13 @@
             align-items: center;
         }
         .nav-link {
-            color: #333 !important;
+            color: #FFFFFF !important;
             font-weight: 600;
             margin: 0 4px;
             white-space: nowrap;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
-        .nav-link:hover { color: var(--red-700) !important; }
+        .nav-link:hover { color: var(--red-300) !important; }
         .btn-cta {
             background: var(--red-700);
             color: #fff !important;
@@ -66,14 +69,40 @@
             white-space: nowrap;
         }
         .btn-cta:hover { background: var(--red-900); }
-        .social-icons a {
+
+        /* Hero section with background image */
+        .hero-contact {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('bg.png') center/cover fixed no-repeat;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 80px 20px;
+        }
+        .hero-contact .section-title {
+            color: #FFFFFF;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-size: 3rem;
+        }
+        .hero-contact .section-subtitle {
+            color: #f0f0f0;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero-contact-content {
+            text-align: center;
+            z-index: 5;
+            width: 100%;
+        }
             color: var(--red-700);
             margin-left: 10px;
             font-size: 1rem;
         }
 
-        /* Logo responsive sizing */
-        .logo-img {
+        .contact-content {
+            background: var(--light);
+            padding: 90px 0;
+        }
             width: 75px;
             height: 75px;
         }
@@ -157,11 +186,17 @@
         </div>
     </nav>
 
-    <!-- Contact -->
-    <section class="section" id="contact" style="background: var(--light);">
-        <div class="container">
+    <!-- Hero Section with Background Image -->
+    <section class="hero-contact" id="contact-hero">
+        <div class="hero-contact-content">
             <h2 class="section-title">Contact Us</h2>
             <p class="section-subtitle">Let's build a campaign that roars.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-content" id="contact">
+        <div class="container">
             <div class="row g-4">
                 <div class="col-lg-6">
                     <form class="service-card">
