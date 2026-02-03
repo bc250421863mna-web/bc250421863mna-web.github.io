@@ -332,10 +332,30 @@
             border: 3px solid var(--red-700);
             box-shadow: 0 4px 12px rgba(177, 18, 38, 0.15);
         }
+        .profile-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
         .profile-name {
             font-weight: 700;
             font-size: 1rem;
             color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .profile-name a {
+            color: var(--red-700);
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            transition: transform 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+        }
+        .profile-name a:hover {
+            color: var(--red-900);
+            transform: scale(1.15);
         }
         .profile-title {
             font-size: 0.85rem;
@@ -796,7 +816,7 @@
                         <div class="services-profile">
                             <img src="profile.png" alt="Naeem Sagheer" class="profile-img">
                             <div class="profile-text">
-                                <div class="profile-name">Naeem Sagheer</div>
+                                <div class="profile-name">Naeem Sagheer <a href="https://www.linkedin.com/in/naeem-sagheer/" target="_blank" rel="noopener noreferrer" title="Visit LinkedIn Profile"><i class="fab fa-linkedin"></i></a></div>
                                 <div class="profile-title">CEO, Co-Owner</div>
                             </div>
                         </div>
