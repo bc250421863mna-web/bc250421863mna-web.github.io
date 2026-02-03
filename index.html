@@ -68,14 +68,17 @@
             display: flex;
             align-items: center;
             flex-wrap: nowrap;
-            gap: 6px;
+            gap: 2px;
             margin: 0;
+            flex-shrink: 1;
+            min-width: 0;
         }
         .nav-link {
             color: var(--text) !important;
             font-weight: 500;
-            font-size: 0.95rem;
-            margin: 0 6px;
+            font-size: 0.875rem;
+            margin: 0 3px;
+            padding: 0 2px !important;
             white-space: nowrap;
             transition: color 0.3s ease;
         }
@@ -86,13 +89,14 @@
             background: var(--red-700);
             color: #fff !important;
             border-radius: 999px;
-            padding: 8px 16px;
+            padding: 6px 12px;
             font-weight: 700;
             border: none;
             box-shadow: 0 8px 20px rgba(177, 18, 38, 0.2);
             white-space: nowrap;
-            font-size: 0.9rem;
+            font-size: 0.875rem;
             transition: all 0.3s ease;
+            display: inline-block;
             flex-shrink: 0;
         }
         .btn-cta:hover {
@@ -100,14 +104,23 @@
             transform: translateY(-2px);
             box-shadow: 0 12px 28px rgba(177, 18, 38, 0.3);
         }
+        .social-icons {
+            gap: 8px !important;
+        }
         .social-icons a {
             color: var(--red-700);
-            margin-left: 12px;
-            font-size: 0.95rem;
+            margin-left: 0;
+            font-size: 0.9rem;
             transition: transform 0.3s ease;
         }
         .social-icons a:hover {
             transform: scale(1.15);
+        }
+        /* Hide social icons on medium and smaller screens */
+        @media (max-width: 1200px) {
+            .social-icons {
+                display: none !important;
+            }
         }
 
         /* Hero Section */
