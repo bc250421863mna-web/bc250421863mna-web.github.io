@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roar Marketing | Digital Marketing Agency</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --red-900: #6b0f1a;
+            --red-700: #b11226;
+            --red-500: #e11d48;
+            --red-300: #fecdd3;
+            --dark: #141414;
+            --light: #f8f9fa;
+            --text: #222;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.7;
+        }
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--red-700) !important;
+        }
+        .nav-link {
+            color: #333 !important;
+            font-weight: 600;
+            margin: 0 6px;
+        }
+        .nav-link:hover { color: var(--red-700) !important; }
+        .btn-cta {
+            background: var(--red-700);
+            color: #fff !important;
+            border-radius: 999px;
+            padding: 10px 22px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 10px 24px rgba(177, 18, 38, 0.25);
+        }
+        .btn-cta:hover { background: var(--red-900); }
+        .social-icons a {
+            color: var(--red-700);
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+
+        .hero {
+            padding: 110px 0 80px;
+            background: radial-gradient(circle at top right, var(--red-300), #fff 55%);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        .hero p { color: #555; max-width: 560px; }
+        .badge-pill {
+            background: var(--red-700);
+            color: #fff;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+        }
+        .lion-card {
+            background: #fff;
+            border: 2px solid #f3f3f3;
+            border-radius: 24px;
+            padding: 26px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+        }
+        .lion-svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .section { padding: 90px 0; }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.3rem;
+            text-align: center;
+        }
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 10px auto 50px;
+            color: #666;
+        }
+
+        .service-card {
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 26px;
+            background: #fff;
+            height: 100%;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(225, 29, 72, 0.15);
+        }
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--red-700);
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+        }
+
+        .stats {
+            background: linear-gradient(135deg, var(--red-700), var(--red-500));
+            color: #fff;
+        }
+        .stat {
+            text-align: center;
+            padding: 20px 10px;
+        }
+        .stat h3 { font-size: 2.2rem; font-weight: 800; }
+
+        .blog-card {
+            border: 1px solid #eee;
+            border-radius: 16px;
+            overflow: hidden;
+            background: #fff;
+        }
+        .blog-thumb {
+            background: var(--red-300);
+            height: 170px;
+        }
+
+        .testimonial {
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 24px;
+            background: #fff;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+        footer a { color: #f5b2bd; text-decoration: none; }
+        .footer-title { color: #fff; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">ROAR MARKETING</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item d-flex align-items-center ms-lg-2">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item social-icons d-none d-lg-flex">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+                <a class="btn btn-cta ms-lg-3" href="#contact">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <span class="badge-pill">DIGITAL AGENCY</span>
+                    <h1 class="mt-3">Roar Marketing — Make Your Brand Roar</h1>
+                    <p class="mt-3">We craft bold strategies, powerful content, and high‑performance campaigns to elevate your brand and deliver measurable growth.</p>
+                    <div class="mt-4 d-flex gap-3">
+                        <a class="btn btn-cta" href="#services">Explore Services</a>
+                        <a class="btn btn-outline-danger" href="#contact">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="lion-card">
+                        <svg class="lion-svg" viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" aria-label="Roaring Lion">
+                            <defs>
+                                <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+                                    <stop offset="0%" stop-color="#b11226" />
+                                    <stop offset="100%" stop-color="#e11d48" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="300" cy="200" r="160" fill="#fde2e7"/>
+                            <path d="M300 70c80 0 145 65 145 145 0 80-65 145-145 145s-145-65-145-145C155 135 220 70 300 70z" fill="url(#g)" opacity="0.12"/>
+                            <path d="M205 220c0-55 43-100 95-100s95 45 95 100" fill="none" stroke="#b11226" stroke-width="10" stroke-linecap="round"/>
+                            <circle cx="250" cy="200" r="14" fill="#b11226"/>
+                            <circle cx="350" cy="200" r="14" fill="#b11226"/>
+                            <path d="M275 245c15 18 35 18 50 0" stroke="#b11226" stroke-width="8" stroke-linecap="round" fill="none"/>
+                            <path d="M215 250c-5 30 20 60 85 60s90-30 85-60" fill="none" stroke="#e11d48" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M300 110l25 25-25 15-25-15 25-25z" fill="#b11226"/>
+                            <path d="M180 140c-30 10-55 35-65 65" stroke="#b11226" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M420 140c30 10 55 35 65 65" stroke="#b11226" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M150 210c-20 10-35 30-40 50" stroke="#e11d48" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M450 210c20 10 35 30 40 50" stroke="#e11d48" stroke-width="6" stroke-linecap="round"/>
+                        </svg>
+                        <p class="mt-3 mb-0" style="color:#666;">A bold roaring lion to symbolize fearless marketing and unstoppable growth.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Roar Marketing</h2>
+            <p class="section-subtitle">We are a red‑theme, performance‑first agency focused on visibility, conversions, and brand authority.</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-bullseye"></i></div>
+                        <h5>Strategic Focus</h5>
+                        <p>We align your goals with data‑driven marketing campaigns that maximize ROI and growth.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                        <h5>Fast Execution</h5>
+                        <p>From content to ads, we deploy quickly with precision to capture market opportunities.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-shield-halved"></i></div>
+                        <h5>Brand Trust</h5>
+                        <p>We build credibility with consistent messaging and compelling brand experiences.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services We Offer -->
+    <section class="section" id="services" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Services We Offer</h2>
+            <p class="section-subtitle">Complete digital marketing solutions to grow your business.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h5>SEO Optimization</h5>
+                        <p>Boost organic visibility with technical, on‑page, and content SEO.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h5>Performance Ads</h5>
+                        <p>High‑ROI paid ads across Google, Meta, and YouTube.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h5>Content Marketing</h5>
+                        <p>Magnetic copy and creative content that converts.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h5>Web Development</h5>
+                        <p>Fast, responsive websites built to convert visitors.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
+                        <h5>Social Media</h5>
+                        <p>Manage and grow your community with winning strategies.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-palette"></i></div>
+                        <h5>Brand Identity</h5>
+                        <p>Stand‑out visuals and positioning for a powerful brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section stats">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 stat">
+                    <h3>120+</h3>
+                    <p>Projects Delivered</p>
+                </div>
+                <div class="col-md-3 stat">
+                    <h3>60+</h3>
+                    <p>Active Clients</p>
+                </div>
+                <div class="col-md-3 stat">
+                    <h3>15+</h3>
+                    <p>Industry Awards</p>
+                </div>
+                <div class="col-md-3 stat">
+                    <h3>98%</h3>
+                    <p>Satisfaction Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blogs -->
+    <section class="section" id="blogs">
+        <div class="container">
+            <h2 class="section-title">Latest Blogs</h2>
+            <p class="section-subtitle">Insights and strategies to help your brand dominate.</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="blog-card">
+                        <div class="blog-thumb"></div>
+                        <div class="p-4">
+                            <h5>How to Build a Roaring Brand</h5>
+                            <p class="text-muted">Learn how bold positioning drives growth and attention.</p>
+                            <a href="#" class="text-danger fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-card">
+                        <div class="blog-thumb"></div>
+                        <div class="p-4">
+                            <h5>Performance Ads That Convert</h5>
+                            <p class="text-muted">A framework for scalable ad campaigns.</p>
+                            <a href="#" class="text-danger fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="blog-card">
+                        <div class="blog-thumb"></div>
+                        <div class="p-4">
+                            <h5>Content That Drives Sales</h5>
+                            <p class="text-muted">Create content that moves customers to action.</p>
+                            <a href="#" class="text-danger fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="section" id="clients" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Our Clients</h2>
+            <p class="section-subtitle">Trusted by ambitious brands worldwide.</p>
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">Client Logo</div>
+                <div class="col-6 col-md-3">Client Logo</div>
+                <div class="col-6 col-md-3">Client Logo</div>
+                <div class="col-6 col-md-3">Client Logo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Testimonials</h2>
+            <p class="section-subtitle">Clients love working with Roar Marketing.</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>“Our leads doubled within 60 days. Roar Marketing delivered results fast.”</p>
+                        <strong>— Alex Morgan</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>“Their branding team gave us a fresh identity that stands out.”</p>
+                        <strong>— Priya Desai</strong>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial">
+                        <p>“Professional, strategic, and reliable. Highly recommended.”</p>
+                        <strong>— Daniel Reyes</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Let’s build a campaign that roars.</p>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <form class="service-card">
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input class="form-control" placeholder="Your Name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="you@email.com" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="4" placeholder="Tell us about your project" required></textarea>
+                        </div>
+                        <button class="btn btn-cta w-100" type="submit">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <div class="service-card">
+                        <h5>Reach Us</h5>
+                        <p><i class="fas fa-phone me-2 text-danger"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope me-2 text-danger"></i> hello@roarmarketing.com</p>
+                        <p><i class="fas fa-location-dot me-2 text-danger"></i> 101 Red Lane, Creative City</p>
+                        <div class="mt-3 social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">Roar Marketing</h5>
+                    <p>Red‑theme marketing agency helping brands roar with confidence and clarity.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#clients">Clients</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Follow</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
