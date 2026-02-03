@@ -536,39 +536,97 @@
             font-weight: 700;
         }
 
-        /* WhatsApp Icon */
-        .whatsapp-icon {
+        /* Floating Chat Menu */
+        .floating-chat-container {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            width: 64px;
-            height: 64px;
-            background: #25D366;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+        }
+        .chat-buttons-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        .chat-buttons-wrapper.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+        .chat-btn {
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
-            z-index: 999;
-            animation: pulse 2s infinite;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             text-decoration: none;
             color: white;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             transition: all 0.3s ease;
+            border: none;
+            outline: none;
         }
-        .whatsapp-icon:hover {
+        .chat-btn-call {
+            background: #25D366;
+        }
+        .chat-btn-call:hover {
             background: #20BA5A;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        .chat-btn-whatsapp {
+            background: #25D366;
+        }
+        .chat-btn-whatsapp:hover {
+            background: #20BA5A;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+        .chat-btn-toggle {
+            background: #141414;
+            animation: pulse 2s infinite;
+        }
+        .chat-btn-toggle:hover {
+            background: #333;
             animation: none;
-            transform: scale(1.15);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        .chat-btn-toggle.active {
+            animation: none;
         }
         @keyframes pulse {
             0%, 100% {
-                box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             }
             50% {
-                box-shadow: 0 6px 35px rgba(37, 211, 102, 0.6);
+                box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+            }
+        }
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .floating-chat-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            .chat-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3rem;
             }
         }
 
@@ -1195,10 +1253,20 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Icon -->
-    <a href="https://wa.me/923254771010" class="whatsapp-icon" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Floating Chat Menu -->
+    <div class="floating-chat-container">
+        <div class="chat-buttons-wrapper" id="chatButtonsWrapper">
+            <a href="tel:+923254771010" class="chat-btn chat-btn-call" title="Call us">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="https://wa.me/923254771010" class="chat-btn chat-btn-whatsapp" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <button class="chat-btn chat-btn-toggle" id="chatToggleBtn" title="Chat with us">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -1208,6 +1276,33 @@
             easing: 'ease-out',
             once: true,
             offset: 120
+        });
+
+        // Floating Chat Menu Toggle
+        const chatToggleBtn = document.getElementById('chatToggleBtn');
+        const chatButtonsWrapper = document.getElementById('chatButtonsWrapper');
+
+        chatToggleBtn.addEventListener('click', function() {
+            chatButtonsWrapper.classList.toggle('active');
+            chatToggleBtn.classList.toggle('active');
+            
+            // Change icon based on state
+            const icon = chatToggleBtn.querySelector('i');
+            if (chatButtonsWrapper.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-comment-dots';
+            }
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.floating-chat-container')) {
+                chatButtonsWrapper.classList.remove('active');
+                chatToggleBtn.classList.remove('active');
+                const icon = chatToggleBtn.querySelector('i');
+                icon.className = 'fas fa-comment-dots';
+            }
         });
     </script>
 </body>
