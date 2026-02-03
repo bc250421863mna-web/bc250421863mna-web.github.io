@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Roar Marketing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red-900: #6b0f1a;
+            --red-700: #b11226;
+            --red-500: #e11d48;
+            --red-300: #fecdd3;
+            --dark: #141414;
+            --light: #f8f9fa;
+            --text: #222;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.7;
+            border-top: 3px solid #b11226;
+        }
+        .navbar {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--red-700) !important;
+        }
+        .nav-link {
+            color: #333 !important;
+            font-weight: 600;
+            margin: 0 6px;
+        }
+        .nav-link:hover { color: var(--red-700) !important; }
+        .btn-cta {
+            background: var(--red-700);
+            color: #fff !important;
+            border-radius: 999px;
+            padding: 10px 22px;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 10px 24px rgba(177, 18, 38, 0.25);
+        }
+        .btn-cta:hover { background: var(--red-900); }
+        .social-icons a {
+            color: var(--red-700);
+            margin-left: 10px;
+            font-size: 1rem;
+        }
+
+        /* Logo responsive sizing */
+        .logo-img {
+            width: 75px;
+            height: 75px;
+        }
+
+        .section { padding: 90px 0; }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.3rem;
+            text-align: center;
+        }
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 10px auto 50px;
+            color: #666;
+        }
+
+        .service-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 28px;
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--red-700);
+            box-shadow: 0 12px 30px rgba(177,18,38,0.12);
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--red-700);
+            color: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #ccc;
+            padding: 50px 0 20px;
+        }
+        footer a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        footer a:hover { color: #fff; }
+        .footer-title { color: #fff; font-weight: 700; }
+
+        @media (max-width: 768px) {
+            .logo-img {
+                width: 45px;
+                height: 45px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="gap: 12px; padding-top: 0; padding-bottom: 0;">
+                <img src="logo.png" alt="Lion Logo" class="logo-img" style="border-radius: 50%; object-fit: cover; margin-top: -15px; margin-bottom: -15px;">
+                <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; color: #b11226; letter-spacing: 1px; text-transform: uppercase;">ROAR MARKETING</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#blogs">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#clients">Clients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonials</a></li>
+                    <li class="nav-item d-flex align-items-center ms-lg-2">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item social-icons d-none d-lg-flex">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </li>
+                </ul>
+                <a class="btn btn-cta ms-lg-3" href="contact.html">Get a Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services We Offer -->
+    <section class="section" id="services" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Services We Offer</h2>
+            <p class="section-subtitle">Complete digital marketing solutions to grow your business.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h5>SEO Optimization</h5>
+                        <p>Boost organic visibility with technical, on‑page, and content SEO.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                        <h5>Performance Ads</h5>
+                        <p>High‑ROI paid ads across Google, Meta, and YouTube.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
+                        <h5>Content Marketing</h5>
+                        <p>Magnetic copy and creative content that converts.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h5>Web Development</h5>
+                        <p>Fast, responsive websites built to convert visitors.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
+                        <h5>Social Media</h5>
+                        <p>Manage and grow your community with winning strategies.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-palette"></i></div>
+                        <h5>Brand Identity</h5>
+                        <p>Stand‑out visuals and positioning for a powerful brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="footer-title">Roar Marketing</h5>
+                    <p>Red‑theme marketing agency helping brands roar with confidence and clarity.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="index.html#clients">Clients</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">Follow</h5>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4" style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
