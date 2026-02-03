@@ -1,0 +1,97 @@
+/* Global Navbar Styles */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 70px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+}
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: var(--red-700) !important;
+    display: flex;
+    align-items: center;
+}
+.navbar-brand img {
+    vertical-align: middle;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    height: 70px;
+    width: 70px;
+}
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2px;
+    margin: 0;
+    flex-shrink: 1;
+    min-width: 0;
+}
+.nav-link {
+    color: var(--text) !important;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin: 0 3px;
+    padding: 0 2px !important;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+.nav-link:hover {
+    color: var(--red-700) !important;
+}
+.btn-cta {
+    background: var(--red-700);
+    color: #fff !important;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 8px 20px rgba(177, 18, 38, 0.2);
+    white-space: nowrap;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.btn-cta:hover {
+    background: var(--red-900);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(177, 18, 38, 0.3);
+}
+.social-icons {
+    gap: 8px !important;
+}
+.social-icons a {
+    color: var(--red-700);
+    margin-left: 0;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+.social-icons a:hover {
+    transform: scale(1.15);
+}
+@media (max-width: 1200px) {
+    .social-icons {
+        display: none !important;
+    }
+}
+@media (max-width: 768px) {
+    .navbar-brand img {
+        width: 45px;
+        height: 45px;
+    }
+}
