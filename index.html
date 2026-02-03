@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
             --red-900: #6b0f1a;
@@ -126,6 +127,93 @@
             transform: translateY(-6px);
             box-shadow: 0 18px 40px rgba(225, 29, 72, 0.15);
         }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .fade-in-down {
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+        .zoom-in {
+            animation: zoomIn 0.8s ease-out forwards;
+        }
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Hover glow effect */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(225, 29, 72, 0.1), transparent);
+            border-radius: 16px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
         .service-icon {
             width: 56px;
             height: 56px;
@@ -165,6 +253,40 @@
             border-radius: 16px;
             padding: 24px;
             background: #fff;
+        }
+
+        /* WhatsApp Floating Icon */
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .whatsapp-icon:hover {
+            background: #20BA5A;
+            animation: none;
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
+            }
         }
 
         footer {
@@ -472,6 +594,22 @@
         </div>
     </section>
 
+    <!-- Newsletter Section -->
+    <section class="section" style="background: linear-gradient(135deg, var(--red-700), var(--red-500)); color: #fff;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" style="color: #fff; margin-bottom: 20px;">Subscribe To Get Latest Updates</h2>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px;">Don't miss out on the latest digital marketing and branding insights.</p>
+                    <form class="d-flex gap-2 justify-content-center flex-wrap">
+                        <input type="email" class="form-control" placeholder="Enter your email" style="max-width: 300px;" required>
+                        <button type="submit" class="btn" style="background: #fff; color: var(--red-700); font-weight: 700;">Sign Up</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="row g-4">
@@ -482,15 +620,26 @@
                 <div class="col-md-4">
                     <h5 class="footer-title">Quick Links</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#clients">Clients</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="locations.html">Locations</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="footer-title">Follow</h5>
-                    <div class="social-icons">
+                    <h5 class="footer-title">Contact Info</h5>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+923254771010">+92 325-4771010</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:roarxmarketing@gmail.com">roarxmarketing@gmail.com</a></p>
+                    <p><i class="fas fa-location-dot"></i> Walton Road Lahore Cant</p>
+                </div>
+            </div>
+            <div class="row mt-4 pt-3 border-top border-secondary">
+                <div class="col-md-6">
+                    <p style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-icons" style="margin-left: 0; justify-content: flex-end;">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
@@ -498,10 +647,35 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4" style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</div>
         </div>
     </footer>
 
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/923254771010" class="whatsapp-icon" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all service cards and other elements
+        document.querySelectorAll('.service-card, .blog-card, .testimonial, .stat').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

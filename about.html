@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <style>
         :root {
             --red-900: #6b0f1a;
@@ -115,6 +116,132 @@
             margin-bottom: 16px;
         }
 
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-image-name.jpg') center/cover no-repeat;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+            margin-top: -70px;
+            padding-top: 220px;
+        }
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 800;
+            animation: fadeInDown 1s ease-out;
+            margin-bottom: 20px;
+        }
+        .hero-subtitle {
+            font-size: 1.3rem;
+            animation: fadeInUp 1s ease-out;
+            opacity: 0.9;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Team Section */
+        .team-card {
+            text-align: center;
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(177,18,38,0.15);
+        }
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--red-700), var(--red-500));
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+        .team-card h5 {
+            color: var(--red-700);
+            font-weight: 700;
+            margin: 12px 0;
+        }
+        .team-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Mission Stats */
+        .mission-stat {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            background: #fff;
+        }
+        .mission-stat h3 {
+            color: var(--red-700);
+            font-weight: 800;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* WhatsApp Icon */
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .whatsapp-icon:hover {
+            background: #20BA5A;
+            animation: none;
+            transform: scale(1.1);
+        }
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(37, 211, 102, 0.7);
+            }
+        }
+
         footer {
             background: var(--dark);
             color: #ccc;
@@ -170,11 +297,53 @@
     </nav>
 
     <!-- About -->
+    <section class="hero-section" id="about-hero">
+        <div class="container">
+            <h1 class="hero-title">About Roar Marketing</h1>
+            <p class="hero-subtitle">We are a red-theme, performance-first agency focused on visibility, conversions, and brand authority.</p>
+        </div>
+    </section>
+
     <section class="section" id="about">
         <div class="container">
-            <h2 class="section-title">About Roar Marketing</h2>
-            <p class="section-subtitle">We are a red‑theme, performance‑first agency focused on visibility, conversions, and brand authority.</p>
-            <div class="row g-4">
+            <div class="row g-4 align-items-center mb-5">
+                <div class="col-lg-6">
+                    <h2 style="color: var(--red-700); font-weight: 800; font-size: 2.3rem; margin-bottom: 20px;">Our Mission</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">At Roar Marketing, our mission is to empower businesses of all sizes to reach their full potential through effective digital marketing and branding strategies. We believe every brand has a story that deserves to be told boldly and authentically.</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">With over 10 years of combined experience and more than 120 successful projects delivered, we've helped ambitious brands dominate their markets.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="mission-stat">
+                                <h3>120+</h3>
+                                <p>Projects Delivered</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mission-stat">
+                                <h3>60+</h3>
+                                <p>Active Clients</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mission-stat">
+                                <h3>15+</h3>
+                                <p>Industry Awards</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mission-stat">
+                                <h3>98%</h3>
+                                <p>Satisfaction Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-5">
+                <h2 class="section-title">Why Choose Roar Marketing</h2>
                 <div class="col-md-4">
                     <div class="service-card">
                         <div class="service-icon"><i class="fas fa-bullseye"></i></div>
@@ -200,6 +369,55 @@
         </div>
     </section>
 
+    <!-- Team Section -->
+    <section class="section" style="background: var(--light);">
+        <div class="container">
+            <h2 class="section-title">Our Team</h2>
+            <p class="section-subtitle">Meet the experts behind your brand's success.</p>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <div class="team-avatar">👨‍💼</div>
+                        <h5>Farzan Bahadur</h5>
+                        <p style="color: var(--red-700); font-weight: 700; margin-bottom: 10px;">CEO & Co-Founder</p>
+                        <p>Strategic visionary with 12+ years in digital marketing, leading campaigns for global brands.</p>
+                        <div class="mt-3" style="display: flex; justify-content: center; gap: 10px;">
+                            <a href="#"><i class="fab fa-facebook-f" style="color: var(--red-700);"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in" style="color: var(--red-700);"></i></a>
+                            <a href="#"><i class="fab fa-instagram" style="color: var(--red-700);"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <div class="team-avatar">👩‍💼</div>
+                        <h5>Uzma Bhatti</h5>
+                        <p style="color: var(--red-700); font-weight: 700; margin-bottom: 10px;">CMO & Co-Founder</p>
+                        <p>Creative powerhouse specializing in content strategy and brand positioning for impact.</p>
+                        <div class="mt-3" style="display: flex; justify-content: center; gap: 10px;">
+                            <a href="#"><i class="fab fa-facebook-f" style="color: var(--red-700);"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in" style="color: var(--red-700);"></i></a>
+                            <a href="#"><i class="fab fa-instagram" style="color: var(--red-700);"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-card">
+                        <div class="team-avatar">👩‍💻</div>
+                        <h5>Sidra Bhatti</h5>
+                        <p style="color: var(--red-700); font-weight: 700; margin-bottom: 10px;">CFO & Co-Founder</p>
+                        <p>Financial strategist ensuring every campaign delivers exceptional ROI and business value.</p>
+                        <div class="mt-3" style="display: flex; justify-content: center; gap: 10px;">
+                            <a href="#"><i class="fab fa-facebook-f" style="color: var(--red-700);"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in" style="color: var(--red-700);"></i></a>
+                            <a href="#"><i class="fab fa-instagram" style="color: var(--red-700);"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="row g-4">
@@ -212,23 +430,25 @@
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="index.html#clients">Clients</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="locations.html">Locations</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="footer-title">Follow</h5>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <h5 class="footer-title">Contact Info</h5>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+923254771010">+92 325-4771010</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:roarxmarketing@gmail.com">roarxmarketing@gmail.com</a></p>
+                    <p><i class="fas fa-location-dot"></i> Walton Road Lahore Cant</p>
                 </div>
             </div>
             <div class="text-center mt-4" style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</div>
         </div>
     </footer>
+
+    <!-- WhatsApp Icon -->
+    <a href="https://wa.me/923254771010" class="whatsapp-icon" target="_blank" rel="noopener noreferrer" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

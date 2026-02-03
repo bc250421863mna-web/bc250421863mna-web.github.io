@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Roar Marketing</title>
+    <title>Locations | Roar Marketing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
@@ -73,7 +73,6 @@
             font-size: 1rem;
         }
 
-        /* Logo responsive sizing */
         .logo-img {
             width: 75px;
             height: 75px;
@@ -90,30 +89,6 @@
             max-width: 700px;
             margin: 10px auto 50px;
             color: #666;
-        }
-
-        .service-card {
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 28px;
-            transition: 0.3s;
-        }
-        .service-card:hover {
-            border-color: var(--red-700);
-            box-shadow: 0 12px 30px rgba(177,18,38,0.12);
-        }
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--red-700);
-            color: #fff;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 16px;
         }
 
         /* Hero Section */
@@ -156,6 +131,71 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Location Card */
+        .location-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .location-card:hover {
+            border-color: var(--red-700);
+            box-shadow: 0 15px 35px rgba(177,18,38,0.15);
+            transform: translateY(-8px);
+        }
+        .location-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--red-700), var(--red-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 20px;
+        }
+        .location-card h5 {
+            color: var(--red-700);
+            font-weight: 700;
+            margin: 15px 0;
+        }
+        .location-card p {
+            color: #666;
+            margin: 10px 0;
+        }
+        .location-card a {
+            color: var(--red-700);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .location-card a:hover {
+            color: var(--red-900);
+        }
+
+        /* Map Container */
+        .map-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+        .map-placeholder {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #999;
+            text-align: center;
         }
 
         /* WhatsApp Icon */
@@ -209,6 +249,9 @@
                 width: 45px;
                 height: 45px;
             }
+            .map-placeholder {
+                height: 300px;
+            }
         }
     </style>
 </head>
@@ -227,12 +270,10 @@
                 <ul class="navbar-nav ms-auto align-items-lg-center">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="services.html">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#blogs">Blogs</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#clients">Clients</a></li>
-                    <li class="nav-item"><a class="nav-link" href="index.html#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                     <li class="nav-item d-flex align-items-center ms-lg-2">
-                        <a class="nav-link" href="contact.html">Contact Us</a>
+                        <a class="nav-link active" href="locations.html">Locations</a>
                     </li>
                     <li class="nav-item social-icons d-none d-lg-flex">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -246,61 +287,76 @@
         </div>
     </nav>
 
-    <!-- Services We Offer -->
-    <section class="hero-section" id="services-hero">
+    <!-- Locations Hero -->
+    <section class="hero-section" id="locations-hero">
         <div class="container">
-            <h1 class="hero-title">Our Services</h1>
-            <p class="hero-subtitle">Complete digital marketing solutions to grow your business.</p>
+            <h1 class="hero-title">Our Locations</h1>
+            <p class="hero-subtitle">Visit us at our office or connect with us online.</p>
         </div>
     </section>
 
-    <section class="section" id="services" style="background: #fff;">
+    <!-- Locations Section -->
+    <section class="section" id="locations">
         <div class="container">
-            <h2 class="section-title">Services We Offer</h2>
-            <p class="section-subtitle">Comprehensive digital marketing solutions tailored to your needs.</p>
-            <div class="row g-4">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">We're here to help you grow your business.</p>
+            <div class="row g-4 mb-5">
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h5>SEO Optimization</h5>
-                        <p>Boost organic visibility with technical, on‑page, and content SEO strategies that drive long-term growth.</p>
+                    <div class="location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h5>Main Office</h5>
+                        <p>Walton Road</p>
+                        <p>Lahore Cant, Punjab</p>
+                        <p>Pakistan - 54000</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
-                        <h5>Performance Ads</h5>
-                        <p>High‑ROI paid ads across Google, Meta, and YouTube with precision targeting and optimization.</p>
+                    <div class="location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h5>Call Us</h5>
+                        <p><a href="tel:+923254771010">+92 325-4771010</a></p>
+                        <p><a href="tel:+923165307492">+92 316-5307492</a></p>
+                        <p style="color: #999; font-size: 0.9rem;">Available Mon-Fri 9AM-6PM</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-pen-nib"></i></div>
-                        <h5>Content Marketing</h5>
-                        <p>Magnetic copy and creative content that converts readers into customers and builds brand authority.</p>
+                    <div class="location-card">
+                        <div class="location-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h5>Email Us</h5>
+                        <p><a href="mailto:roarxmarketing@gmail.com">roarxmarketing@gmail.com</a></p>
+                        <p><a href="mailto:info@roarmarketing.com">info@roarmarketing.com</a></p>
+                        <p style="color: #999; font-size: 0.9rem;">We'll respond within 24 hours</p>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h5>Web Development</h5>
-                        <p>Fast, responsive websites built to convert visitors into customers with modern technology.</p>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div>
+                        <i class="fas fa-map-location-dot" style="font-size: 3rem; color: var(--red-700); margin-bottom: 10px; display: block;"></i>
+                        <p style="margin: 0;">Google Maps Iframe - Walton Road, Lahore Cant</p>
+                        <small style="color: #bbb;">Replace this with an embedded Google Maps iframe</small>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-share-nodes"></i></div>
-                        <h5>Social Media</h5>
-                        <p>Manage and grow your community with winning strategies that build engagement and loyalty.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-palette"></i></div>
-                        <h5>Brand Identity</h5>
-                        <p>Stand‑out visuals and strategic positioning that make your brand memorable and powerful.</p>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="section" style="background: linear-gradient(135deg, var(--red-700), var(--red-500)); color: #fff; text-align: center;">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff; margin-bottom: 20px;">Ready to Grow Your Business?</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 30px; font-size: 1.1rem;">Contact us today and let's create something amazing together!</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="contact.html" class="btn" style="background: #fff; color: var(--red-700); font-weight: 700; padding: 12px 30px;">Get in Touch</a>
+                <a href="https://wa.me/923254771010" target="_blank" rel="noopener noreferrer" class="btn" style="background: #25D366; color: #fff; font-weight: 700; padding: 12px 30px;">WhatsApp Us</a>
             </div>
         </div>
     </section>
@@ -317,15 +373,18 @@
                     <ul class="list-unstyled">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="locations.html">Locations</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <h5 class="footer-title">Contact Info</h5>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+923254771010">+92 325-4771010</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:roarxmarketing@gmail.com">roarxmarketing@gmail.com</a></p>
-                    <p><i class="fas fa-location-dot"></i> Walton Road Lahore Cant</p>
+                    <h5 class="footer-title">Follow</h5>
+                    <div class="social-icons" style="margin-left: 0;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="text-center mt-4" style="color:#bbb;">© 2026 Roar Marketing. All rights reserved.</div>
@@ -338,5 +397,26 @@
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all location cards
+        document.querySelectorAll('.location-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
