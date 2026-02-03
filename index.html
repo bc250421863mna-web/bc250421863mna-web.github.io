@@ -36,12 +36,19 @@
             background: #fff;
             border-bottom: 1px solid var(--border);
             display: flex;
+            justify-content: space-between;
             align-items: center;
             min-height: 70px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
             position: sticky;
             top: 0;
             z-index: 100;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
         .navbar-brand {
             font-weight: 800;
@@ -54,14 +61,15 @@
             vertical-align: middle;
             margin-top: 0 !important;
             margin-bottom: 0 !important;
-            height: 50px;
-            width: 50px;
+            height: 70px;
+            width: 70px;
         }
         .navbar-nav {
             display: flex;
             align-items: center;
             flex-wrap: nowrap;
-            gap: 8px;
+            gap: 6px;
+            margin: 0;
         }
         .nav-link {
             color: var(--text) !important;
@@ -78,13 +86,14 @@
             background: var(--red-700);
             color: #fff !important;
             border-radius: 999px;
-            padding: 10px 20px;
+            padding: 8px 16px;
             font-weight: 700;
             border: none;
             box-shadow: 0 8px 20px rgba(177, 18, 38, 0.2);
             white-space: nowrap;
             font-size: 0.9rem;
             transition: all 0.3s ease;
+            flex-shrink: 0;
         }
         .btn-cta:hover {
             background: var(--red-900);
