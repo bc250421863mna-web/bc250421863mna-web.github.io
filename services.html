@@ -26,19 +26,22 @@
             border-top: 3px solid #b11226;
         }
         .navbar {
-            background: url('bg.png') center/cover, rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid rgba(238, 238, 238, 0.5);
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('bg.png') center/cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             min-height: 70px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
         }
         .navbar-brand {
             font-weight: 800;
             letter-spacing: 0.5px;
-            color: var(--red-700) !important;
+            color: #fff !important;
             display: flex;
             align-items: center;
+        }
+        .navbar-brand:hover {
+            color: var(--red-700) !important;
         }
         .navbar-brand img {
             vertical-align: middle;
@@ -50,7 +53,7 @@
             align-items: center;
         }
         .nav-link {
-            color: #333 !important;
+            color: #fff !important;
             font-weight: 600;
             margin: 0 4px;
             white-space: nowrap;
