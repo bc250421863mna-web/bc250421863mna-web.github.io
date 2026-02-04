@@ -121,7 +121,6 @@
 
         .services-section {
             background: #fff;
-            padding-bottom: 50px;
         }
         .services-layout {
             display: grid;
@@ -134,7 +133,6 @@
             flex-direction: column;
             gap: 24px;
             height: 100%;
-            justify-content: space-between;
         }
         .services-eyebrow {
             color: var(--red-700);
@@ -155,46 +153,6 @@
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 24px;
-            align-items: stretch;
-        }
-        .process-bridge {
-            text-align: center;
-            padding: 40px 0;
-            position: relative;
-        }
-        .process-bridge::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 600px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--red-700), transparent);
-        }
-        .process-bridge a {
-            position: relative;
-            display: inline-block;
-            background: #fff;
-            padding: 0 20px;
-            color: var(--red-700);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.05em;
-            transition: all 0.3s ease;
-        }
-        .process-bridge a:hover {
-            color: var(--red-900);
-            transform: scale(1.05);
-        }
-        .process-bridge a i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-        .process-bridge a:hover i {
-            transform: translateX(4px);
         }
         .profile-cta {
             display: flex;
@@ -450,9 +408,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="process-bridge">
-            <a href="/contact">Get Started Today <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
