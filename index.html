@@ -31,6 +31,11 @@
             border-top: 3px solid #b11226;
         }
 
+        /* Global Smooth Transitions */
+        a, button, .btn {
+            transition: all 0.4s ease-in-out;
+        }
+
         /* Enhanced Navbar */
         .navbar {
             background: #fff;
@@ -843,7 +848,7 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="/" style="gap: 12px; padding-top: 0; padding-bottom: 0;">
-    <img src="/logo.png" alt="Lion Logo" class="logo-img" style="border-radius: 50%; object-fit: cover;">
+    <img src="/images/logo.png" alt="Lion Logo" class="logo-img" style="border-radius: 50%; object-fit: cover;">
     
     <span style="font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; color: #b11226; letter-spacing: 1px; text-transform: uppercase;">ROAR MARKETING</span>
 </a>
@@ -877,13 +882,13 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="row align-items-center g-4">
-                <div class="col-lg-6" data-aos="fade-up">
+                <div class="col-lg-6" data-aos="fade-down">
                     <span class="badge-pill d-inline-block mb-3">RESULTS-DRIVEN DIGITAL AGENCY</span>
                     <h1 class="mt-3">Roar Marketing — Make Your Brand Roar</h1>
                     <p class="mt-3">We craft bold strategies, powerful content, and high‑performance campaigns to elevate your brand and deliver measurable growth.</p>
                     <div class="mt-4 d-flex flex-wrap gap-3">
-                        <a class="btn btn-cta" href="/services">Explore Services</a>
-                        <a class="btn btn-outline-danger" style="color: #b11226; border-color: #b11226;" href="/contact">Contact Us</a>
+                        <a class="btn btn-cta" href="/services" data-aos="zoom-in" data-aos-delay="200">Explore Services</a>
+                        <a class="btn btn-outline-danger" style="color: #b11226; border-color: #b11226;" href="/contact" data-aos="zoom-in" data-aos-delay="200">Contact Us</a>
                     </div>
                     <div class="row mt-4 g-3">
                         <div class="col-4">
@@ -1021,7 +1026,7 @@
             <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Success stories that speak louder</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">A snapshot of campaigns that delivered measurable results for growth‑focused brands.</p>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4" data-aos="slide-up" data-aos-delay="200">
                     <div class="portfolio-card">
                         <div class="portfolio-thumb" style="background: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=500&h=300&fit=crop') center/cover no-repeat;"></div>
                         <h5>Retail Growth Campaign</h5>
@@ -1029,7 +1034,7 @@
                         <p class="portfolio-result"><strong>+142% revenue in 90 days</strong></p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="col-md-4" data-aos="slide-up" data-aos-delay="250">
                     <div class="portfolio-card">
                         <div class="portfolio-thumb" style="background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop') center/cover no-repeat;"></div>
                         <h5>SaaS Lead Engine</h5>
@@ -1037,7 +1042,7 @@
                         <p class="portfolio-result"><strong>3.1x lead volume increase</strong></p>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-4" data-aos="slide-up" data-aos-delay="300">
                     <div class="portfolio-card">
                         <div class="portfolio-thumb" style="background: url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500&h=300&fit=crop') center/cover no-repeat;"></div>
                         <h5>Hospitality Brand Lift</h5>
@@ -1119,19 +1124,19 @@
             <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Clients love working with Roar Marketing</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">We build long‑term partnerships rooted in transparency and performance.</p>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4" data-aos="zoom-out" data-aos-delay="200">
                     <div class="testimonial-card">
                         <p>“Our leads doubled within 60 days and the team kept us informed every week.”</p>
                         <strong>— Alex Morgan, Growth Director</strong>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="col-md-4" data-aos="zoom-out" data-aos-delay="250">
                     <div class="testimonial-card">
                         <p>“They repositioned our brand and the market response was instant.”</p>
                         <strong>— Priya Desai, Founder</strong>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-4" data-aos="zoom-out" data-aos-delay="300">
                     <div class="testimonial-card">
                         <p>“Professional, strategic, and reliable. The results exceeded expectations.”</p>
                         <strong>— Daniel Reyes, Marketing Lead</strong>
@@ -1163,7 +1168,7 @@
             <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Latest strategies from our team</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="150">Tactical guidance to help your brand dominate search, social, and paid media.</p>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
                     <div class="blog-card">
                         <div class="blog-thumb">
                             <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800&h=600&fit=crop" alt="Minimalist branding workspace">
@@ -1175,7 +1180,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="250">
                     <div class="blog-card">
                         <div class="blog-thumb">
                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Marketing analytics dashboard">
@@ -1187,7 +1192,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="300">
                     <div class="blog-card">
                         <div class="blog-thumb">
                             <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600&fit=crop" alt="Copywriting and creative writing desk">
