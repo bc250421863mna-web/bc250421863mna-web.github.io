@@ -291,21 +291,30 @@
             background: #fff;
         }
         .services-layout {
-            display: grid;
-            grid-template-columns: minmax(300px, 1fr) minmax(0, 1.5fr);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 60px;
-            align-items: stretch;
+            text-align: center;
         }
         .services-info {
             display: flex;
             flex-direction: column;
             gap: 30px;
             height: 100%;
+            width: 100%;
+            align-items: center;
+        }
+        .services-info > div {
+            max-width: 800px;
         }
         .services-info .section-title,
         .services-info .section-subtitle {
-            text-align: left;
+            text-align: center;
             margin-left: 0;
+        }
+        .services-info .section-eyebrow {
+            text-align: center;
         }
         .services-info .section-subtitle {
             margin-bottom: 0;
@@ -313,8 +322,11 @@
         }
         .services-cards {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(3, minmax(280px, 1fr));
             gap: 28px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .profile-cta {
             display: flex;
@@ -769,7 +781,6 @@
         /* Responsive */
         @media (max-width: 1024px) {
             .services-layout {
-                grid-template-columns: 1fr;
                 gap: 40px;
             }
             .services-cards {
@@ -798,9 +809,11 @@
             }
             .profile-cta {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
                 border-top: none;
                 padding-top: 0;
+                width: 100%;
+                gap: 16px;
             }
             .btn-more-services {
                 width: 100%;
@@ -817,7 +830,7 @@
             }
             .newsletter-form {
                 flex-direction: column;
-            }
+            }}
             .newsletter-form input,
             .newsletter-form button {
                 width: 100%;
